@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MM Times - Under Maintenance</title>
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MM Times - Under Maintenance</title>
+<style>
   body {
     display: flex;
     flex-direction: column;
@@ -13,61 +13,70 @@
     height: 100vh;
     margin: 0;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    /* Professional sky-blue gradient */
-    background: linear-gradient(135deg, #87CEFA, #00BFFF);
-    color: #fff;
+    /* Outer background gradient: sky blue → red */
+    background: linear-gradient(135deg, #87CEFA, #FF4500);
+    color: #333;
     text-align: center;
   }
+
   .card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    background: #ffffff; /* Inner white background */
     padding: 2rem;
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     max-width: 650px;
     animation: fadeIn 1.2s ease-in-out;
   }
+
   .logo {
     max-width: 150px;
     margin-bottom: 1rem;
   }
+
   h1 {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
-    color: #ffdd57;
+    color: #FF4500; /* Optional: red heading */
   }
+
   h2 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
+    color: #333;
   }
+
   p {
     font-size: 1rem;
     margin: 0.5rem 0 1rem 0;
+    color: #555;
   }
+
   img.qr {
     margin: 1rem 0;
     width: 200px;
   }
+
   a.button {
     display: inline-block;
     margin-top: 1rem;
     padding: 12px 24px;
-    background: #ffdd57;
-    color: #333;
+    background: #FF4500;
+    color: #fff;
     text-decoration: none;
     font-weight: bold;
     border-radius: 30px;
     transition: background 0.3s ease;
   }
+
   a.button:hover {
-    background: #ffc107;
+    background: #e03e00;
   }
+
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
 </style>
-  
 </head>
 <body>
   <div class="card">
@@ -80,19 +89,14 @@
 
     <!-- Maintenance Message -->
     <p>🚧 We are under maintenance – sorry for the inconvenience.<br>
-       We will be back soon with completely amazing!</p>
+       We will be back soon with Completely amazing!</p>
     <p>👉 Meanwhile, please scan the QR code below or click the link for our company portfolio:</p>
 
     <!-- QR Code -->
     <img src="qrcode.png" alt="QR Code to Portfolio PDF" class="qr"><br>
 
     <!-- Portfolio Link -->
-    <a href="https://drive.google.com/file/d/1cL8JOlX4PHUvrtXthpjtHOX0l68GvvxU/view?usp=drive_link" target="_blank" class="button">📄 View Portfolio</a>
+    <a href="https://drive.google.com/your-pdf-link" target="_blank" class="button">📄 View Portfolio</a>
   </div>
 </body>
 </html>
-
-
-
-
-
