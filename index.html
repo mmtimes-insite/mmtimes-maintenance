@@ -12,33 +12,80 @@
       justify-content: center;
       height: 100vh;
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f8f9fa;
-      color: #333;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0073e6, #6a11cb);
+      color: #fff;
       text-align: center;
     }
     .card {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
       padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      max-width: 500px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      max-width: 650px;
+      animation: fadeIn 1.2s ease-in-out;
     }
-    h1 {
-      color: #0073e6;
+    .logo {
+      max-width: 150px;
       margin-bottom: 1rem;
     }
-    img {
-      margin-top: 1rem;
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #ffdd57;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1rem;
+      margin: 0.5rem 0 1rem 0;
+    }
+    img.qr {
+      margin: 1rem 0;
       width: 200px;
+    }
+    a.button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 12px 24px;
+      background: #ffdd57;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+      transition: background 0.3s ease;
+    }
+    a.button:hover {
+      background: #ffc107;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>🚧 We are Under Maintenance 🚧</h1>
-    <p>Please scan this QR code to view our<br><b>Portfolio & Services PDF</b>.</p>
-    <img src="qrcode.png" alt="QR Code to Portfolio PDF">
+    <!-- Company Logo -->
+    <img src="logo.png" alt="MM Times Logo" class="logo">
+
+    <!-- Headings -->
+    <h1>✨ Welcome to this world of MM Times ✨</h1>
+    <h2>Meenakshi Mukundha Times</h2>
+
+    <!-- Maintenance Message -->
+    <p>🚧 We are under maintenance – sorry for the inconvenience.<br>
+       We will be back soon with something amazing!</p>
+    <p>👉 Meanwhile, please scan the QR code below or click the link for our company portfolio:</p>
+
+    <!-- QR Code -->
+    <img src="qrcode.png" alt="QR Code to Portfolio PDF" class="qr"><br>
+
+    <!-- Portfolio Link -->
+    <a href="https://drive.google.com/your-pdf-link" target="_blank" class="button">📄 View Portfolio</a>
   </div>
 </body>
 </html>
