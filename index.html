@@ -14,7 +14,7 @@
     min-height: 100vh;
     margin: 0;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #87CEFA, #FF7F50);
+    background: linear-gradient(135deg, #87CEFA, #FF7F50); /* Outer gradient */
     color: #333;
     text-align: center;
     padding: 1rem;
@@ -22,23 +22,24 @@
 
   /* Card Styles */
   .card {
-    background: #ffffff;
-    padding: 2rem;
+    background: #ffffff; /* Inner white background */
+    padding: 2.5rem;
     border-radius: 25px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
     max-width: 700px;
     width: 100%;
-    animation: fadeIn 1.2s ease-in-out;
     box-sizing: border-box;
+    animation: fadeInBounce 1.5s ease-in-out;
   }
 
-  /* Logo Styles */
+  /* Logo */
   .logo {
     width: 50%;
     max-width: 250px;
     height: auto;
     margin-bottom: 1rem;
     filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+    animation: floatLogo 3s ease-in-out infinite;
   }
 
   /* Headings */
@@ -66,6 +67,7 @@
     width: 40%;
     max-width: 200px;
     height: auto;
+    animation: sway 4s ease-in-out infinite;
   }
 
   /* Button */
@@ -80,15 +82,36 @@
     border-radius: 30px;
     transition: background 0.3s ease;
     font-size: 1rem;
+    animation: pulse 2s infinite;
   }
   a.button:hover {
     background: #e03e00;
   }
 
-  /* Fade-in Animation */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+  /* Animations */
+  @keyframes fadeInBounce {
+    0% { opacity: 0; transform: translateY(-30px); }
+    50% { opacity: 1; transform: translateY(10px); }
+    70% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+  }
+
+  @keyframes floatLogo {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+
+  @keyframes sway {
+    0% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+    100% { transform: rotate(-3deg); }
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
   }
 
   /* Responsive Text */
