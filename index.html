@@ -5,79 +5,107 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MM Times - Under Maintenance</title>
 <style>
+  /* Global Styles */
   body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    /* Outer background gradient: sky blue → red */
-    background: linear-gradient(135deg, #87CEFA, #FF4500);
+    background: linear-gradient(135deg, #87CEFA, #FF7F50);
     color: #333;
     text-align: center;
+    padding: 1rem;
   }
 
+  /* Card Styles */
   .card {
-    background: #ffffff; /* Inner white background */
+    background: #ffffff;
     padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    max-width: 650px;
+    border-radius: 25px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    max-width: 700px;
+    width: 100%;
     animation: fadeIn 1.2s ease-in-out;
+    box-sizing: border-box;
   }
 
+  /* Logo Styles */
   .logo {
-  width: 250px;
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 1rem;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
-}
-
-  h1 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-    color: #FF4500; /* Optional: red heading */
+    width: 50%;
+    max-width: 250px;
+    height: auto;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
   }
 
+  /* Headings */
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #FF4500;
+  }
   h2 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
     color: #333;
   }
 
+  /* Paragraphs */
   p {
     font-size: 1rem;
     margin: 0.5rem 0 1rem 0;
     color: #555;
   }
 
+  /* QR Code */
   img.qr {
     margin: 1rem 0;
-    width: 200px;
+    width: 40%;
+    max-width: 200px;
+    height: auto;
   }
 
+  /* Button */
   a.button {
     display: inline-block;
     margin-top: 1rem;
-    padding: 12px 24px;
+    padding: 14px 28px;
     background: #FF4500;
     color: #fff;
     text-decoration: none;
     font-weight: bold;
     border-radius: 30px;
     transition: background 0.3s ease;
+    font-size: 1rem;
   }
-
   a.button:hover {
     background: #e03e00;
   }
 
+  /* Fade-in Animation */
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Responsive Text */
+  @media (max-width: 768px) {
+    h1 { font-size: 1.6rem; }
+    h2 { font-size: 1.2rem; }
+    p { font-size: 0.95rem; }
+    a.button { font-size: 0.95rem; padding: 12px 24px; }
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 1.4rem; }
+    h2 { font-size: 1rem; }
+    p { font-size: 0.9rem; }
+    .logo { width: 70%; max-width: 200px; }
+    img.qr { width: 50%; max-width: 150px; }
+    a.button { font-size: 0.9rem; padding: 10px 20px; }
   }
 </style>
 </head>
@@ -92,7 +120,7 @@
 
     <!-- Maintenance Message -->
     <p>🚧 We are under maintenance – sorry for the inconvenience.<br>
-       We will be back soon with Completely amazing!</p>
+       We will be back soon with something amazing!</p>
     <p>👉 Meanwhile, please scan the QR code below or click the link for our company portfolio:</p>
 
     <!-- QR Code -->
@@ -103,4 +131,3 @@
   </div>
 </body>
 </html>
-
