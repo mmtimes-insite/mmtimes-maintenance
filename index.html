@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MM Times - Under Maintenance</title>
+
+<!-- Favicon setup -->
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
 <style>
   /* Global Styles */
   body {
@@ -61,13 +66,12 @@
     color: #555;
   }
 
-  /* QR Code */
+  /* QR Code (static) */
   img.qr {
     margin: 1rem 0;
     width: 40%;
     max-width: 200px;
     height: auto;
-    animation: sway 4s ease-in-out infinite;
   }
 
   /* Button */
@@ -100,12 +104,6 @@
     0% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
     100% { transform: translateY(0); }
-  }
-
-  @keyframes sway {
-    0% { transform: rotate(-3deg); }
-    50% { transform: rotate(3deg); }
-    100% { transform: rotate(-3deg); }
   }
 
   @keyframes pulse {
@@ -146,7 +144,7 @@
        We will be back soon with something amazing!</p>
     <p>👉 Meanwhile, please scan the QR code below or click the link for our company portfolio:</p>
 
-    <!-- QR Code -->
+    <!-- QR Code (static) -->
     <img src="qrcode.png" alt="QR Code to Portfolio PDF" class="qr"><br>
 
     <!-- Portfolio Link -->
