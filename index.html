@@ -79,10 +79,10 @@
     height: auto;
   }
 
-  /* Button */
-  a.button {
+  /* Buttons */
+  .button {
     display: inline-block;
-    margin-top: 1rem;
+    margin: 0.5rem;
     padding: 14px 28px;
     background: #FF4500;
     color: #fff;
@@ -93,7 +93,7 @@
     font-size: 1rem;
     animation: pulse 2s infinite;
   }
-  a.button:hover {
+  .button:hover {
     background: #e03e00;
   }
 
@@ -122,7 +122,7 @@
     h1 { font-size: 1.6rem; }
     h2 { font-size: 1.2rem; }
     p { font-size: 0.95rem; }
-    a.button { font-size: 0.95rem; padding: 12px 24px; }
+    .button { font-size: 0.95rem; padding: 12px 24px; }
   }
 
   @media (max-width: 480px) {
@@ -131,7 +131,7 @@
     p { font-size: 0.9rem; }
     .logo { width: 70%; max-width: 200px; }
     img.qr { width: 50%; max-width: 150px; }
-    a.button { font-size: 0.9rem; padding: 10px 20px; }
+    .button { font-size: 0.9rem; padding: 10px 20px; }
   }
 </style>
 </head>
@@ -147,13 +147,14 @@
     <!-- Maintenance Message -->
     <p>🚧 We are under maintenance – sorry for the inconvenience.<br>
        We will be back soon with something amazing!</p>
-    <p>👉 Meanwhile, please scan the QR code below or click the link for our company portfolio:</p>
+    <p>👉 Meanwhile, please scan the QR code below or click the links:</p>
 
     <!-- QR Code (static) -->
     <img src="qrcode.png" alt="QR Code to Portfolio PDF" class="qr"><br>
 
-    <!-- Portfolio Link -->
+    <!-- Buttons -->
     <a href="https://drive.google.com/your-pdf-link" target="_blank" class="button">📄 View Portfolio</a>
+    <a href="https://your-laptop-service-link.com" target="_blank" class="button">💻 Laptop Service</a>
   </div>
 </body>
 </html>
