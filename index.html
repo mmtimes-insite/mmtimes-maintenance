@@ -5,10 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MM Times - Under Maintenance</title>
 
-<!-- Favicon setup -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📰</text></svg>">
-<link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📰</text></svg>">
-
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
@@ -103,12 +99,28 @@
 
   /* Logo */
   .logo {
-    width: 40%;
-    max-width: 220px;
-    height: auto;
-    margin-bottom: 1.5rem;
-    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
+    width: 200px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #0a1929, #1a3a5f);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 10px;
     animation: floatLogo 4s ease-in-out infinite;
+  }
+  
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #f9c74f, #00b4d8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
   /* Headings */
@@ -169,16 +181,22 @@
     margin: 1.5rem 0;
   }
   
-  img.qr {
+  .qr-code {
     width: 180px;
     height: 180px;
+    background: linear-gradient(145deg, #0a1929, #1a3a5f);
     border: 8px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f9c74f;
+    font-size: 0.9rem;
     transition: all 0.4s ease;
   }
   
-  img.qr:hover {
+  .qr-code:hover {
     transform: scale(1.05);
     border-color: rgba(0, 180, 216, 0.3);
     box-shadow: 0 15px 30px rgba(0, 180, 216, 0.2);
@@ -506,10 +524,15 @@
     }
     
     .logo {
-      width: 50%;
+      width: 180px;
+      height: 70px;
     }
     
-    img.qr {
+    .logo-text {
+      font-size: 1.8rem;
+    }
+    
+    .qr-code {
       width: 150px;
       height: 150px;
     }
@@ -538,9 +561,7 @@
   <div class="card">
     <!-- Company Logo -->
     <div class="logo">
-      <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Playfair Display" font-size="36" fill="#f9c74f">MM TIMES</text>
-      </svg>
+      <div class="logo-text">MM TIMES</div>
     </div>
 
     <!-- Headings -->
@@ -589,7 +610,9 @@
     <h3>Access Our Resources</h3>
     <p>Scan the QR code to view our portfolio</p>
     <div class="qr-container">
-      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzAwYjRkOCIvPjx0ZXh0IHg9IjEwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPk1NIFRJTUVTPC90ZXh0Pjwvc3ZnPg==" alt="QR Code to Portfolio PDF" class="qr">
+      <div class="qr-code">
+        <div>QR Code<br>Placeholder</div>
+      </div>
       <div class="qr-glare"></div>
     </div>
 
