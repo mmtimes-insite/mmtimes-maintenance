@@ -531,27 +531,16 @@
             <div class="progress-bar"></div>
         </div>
 
-        <!-- QR Code (static) -->
-        <p>Please Scan this below QR code to know about our Elite Laptop Sales and Services </p>
-        <div class="qr-container">
-            <img src="qrcode.png" alt="QR Code to MM Times Portfolio PDF - Startup Services and Laptop Deals" class="qr">
-        </div>
-
-        <!-- Social Media Icons -->
-        <div class="social-media">
-            <a href="javascript:void(0);" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="javascript:void(0);" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
-            <a href="javascript:void(0);" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
-            <a href="javascript:void(0);" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
-            <a href="javascript:void(0);" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
-        </div>
-
         <!-- Polite Request -->
         <p style="font-size:1.05rem; font-weight:600; color:var(--primary); margin-top:2rem; margin-bottom:1rem;">
-           👉 Please use the following quick links to view our company portfolio, explore elite laptop deals, or get in touch with us directly:
+           👉 Please Scan the QR code or use the following quick links to view our company portfolio, explore elite laptop deals, or get in touch with us directly:
         </p>
 
-        
+        <!-- QR Code (static) -->
+        <div class="qr-container">
+            <img src="qrcode.png" alt="QR Code to MM Times Portfolio PDF - IT Services and Laptop Deals" class="qr">
+        </div>
+
         <!-- Buttons -->
         <div class="buttons-container">
             <a href="https://drive.google.com/file/d/1RK_cxkmtGtKgg90PLHzhUD7XPR905UBI/view?usp=sharing" target="_blank" class="button">
@@ -570,24 +559,32 @@
                  <i class="fas fa-envelope"></i> Submit Query
             </a>
         </div>
+
+        <!-- Social Media Icons -->
+        <div class="social-media">
+            <a href="javascript:void(0);" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="javascript:void(0);" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+            <a href="javascript:void(0);" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+            <a href="javascript:void(0);" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+            <a href="javascript:void(0);" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+        </div>
     
     <div class="footer">
-        <p>© 2023 MM Times - All Rights Reserved | <a href="mailto:services@mmtimes.in">services@mmtimes.in</a></p>
+        <div class="footer">
+           <p>© <span id="year"></span> MM Times - All Rights Reserved | 
+              <a href="mailto:services@mmtimes.in">services@mmtimes.in</a>
+           </p>
     </div>
 
     <script>
-        // Simple countdown animation (for demonstration only)
-        document.addEventListener('DOMContentLoaded', function() {
-            const progressBar = document.querySelector('.progress-bar');
-            let progress = 65;
+        // Auto-update footer year
+        document.addEventListener("DOMContentLoaded", function() {
+            const yearSpan = document.getElementById("year");
+            if (yearSpan) {
+              yearSpan.textContent = new Date().getFullYear();
             
-            setInterval(() => {
-                progress = progress + (Math.random() * 0.5);
-                if (progress > 85) progress = 65;
-                progressBar.style.width = progress + '%';
-            }, 1500);
-        });
+            }
+          });
     </script>
 </body>
 </html>
-
