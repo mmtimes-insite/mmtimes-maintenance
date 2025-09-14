@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MM Times - IT Services, Laptop Sales Procurement, Web Solutions, Workshops, Projects | Under Maintenance</title>
-    <meta name="description" content="MM Times is undergoing maintenance. We provide IT Services, Laptop Sales, Procurement of materials, Web Solutions, Hands On Practical Workshops, Projects. Contact us for elite laptop deals and Web solutions.">
+    <title>MM Times - Research and Development, Laptop Sales, Material Procurement, Web Solutions, Workshops, Projects | Under Maintenance</title>
+    <meta name="description" content="MM Times is undergoing maintenance. We provide Research and Development, Laptop Sales, Material Procurement, Web Solutions, Workshops, Projects. Contact us for elite laptop deals and Web solutions.">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://mmtimes.in/" />
@@ -15,15 +15,15 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mmtimes.in/">
-    <meta property="og:title" content="MM Times - IT Services, Laptop Sales Procurement, Web Solutions, Workshops, Projects">
-    <meta property="og:description" content="MM Times provides IT Services, Laptop Sales Procurement, Web Solutions, Workshops, Projects. Currently enhancing our website to serve you better.">
+    <meta property="og:title" content="MM Times - Research and Development, Laptop Sales, Material Procurement, Web Solutions, Workshops, Projects">
+    <meta property="og:description" content="MM Times provides Research and Development, Laptop Sales, Material Procurement, Web Solutions, Workshops, Projects. Currently enhancing our website to serve you better.">
     <meta property="og:image" content="https://mmtimes.in/logo.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://mmtimes.in/">
-    <meta property="twitter:title" content="MM Times - IT Services, Laptop Sales Procurement, Web Solutions, Workshops, Projects">
-    <meta property="twitter:description" content="MM Times provides IT Services, Laptop Sales Procurement, Web Solutions, Workshops, Projects.">
+    <meta property="twitter:title" content="MM Times - Research and Development, Laptop Sales, Material Procurement, Web Solutions, Workshops, Projects">
+    <meta property="twitter:description" content="MM Times provides Research and Development, Laptop Sales, Material Procurement, Web Solutions, Workshops, Projects.">
     <meta property="twitter:image" content="https://mmtimes.in/logo.png">
     
     <!-- Favicon setup -->
@@ -364,9 +364,45 @@
             animation: pulse 2s infinite;
         }
         
+        /* Social Media Icons */
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 2rem 0;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .social-icon.facebook { background: #3b5998; }
+        .social-icon.twitter { background: #1da1f2; }
+        .social-icon.instagram { 
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+        .social-icon.linkedin { background: #0077b5; }
+        .social-icon.youtube { background: #ff0000; }
+        
         /* Footer */
         .footer {
-            margin-top: 3rem;
+            margin-top: 2rem;
             color: rgba(255,255,255,0.85);
             font-size: 0.9rem;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
@@ -430,11 +466,20 @@
             .card {
                 padding: 2.5rem;
             }
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
         }
 
         @media (max-width: 600px) {
             .buttons-container {
                 grid-template-columns: 1fr;
+            }
+            .social-media {
+                flex-wrap: wrap;
+                gap: 15px;
             }
         }
         
@@ -450,6 +495,11 @@
             }
             .card {
                 padding: 2rem 1.5rem;
+            }
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -468,12 +518,12 @@
 
         <!-- Maintenance Message -->
         <p>We are currently enhancing our website to serve you better. Thank you for your patience during this maintenance period.</p>
-        <p>MM Times provides comprehensive IT services, elite laptop deals, digital marketing solutions, and tech consulting services. We'll be back soon with an improved experience and exciting new features!</p>
+        <p>MM Times provides comprehensive  Research and Development, Laptop Sales, Material Procurement, Web Solutions, Workshops, Projects. We'll be back soon with an improved experience and exciting new features!</p>
         
         <!-- Status indicator -->
         <div class="status">
             <div class="status-dot"></div>
-            Maintenance in progress - Estimated completion: 48 hours
+            Maintenance in progress - Estimated completion:  15 days
         </div>
         
         <!-- Progress bar -->
@@ -485,6 +535,15 @@
         <p>Scan the QR code to access our portfolio</p>
         <div class="qr-container">
             <img src="qrcode.png" alt="QR Code to MM Times Portfolio PDF - IT Services and Laptop Deals" class="qr">
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="social-media">
+            <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
         </div>
 
         <!-- Buttons -->
@@ -526,4 +585,3 @@
     </script>
 </body>
 </html>
-
