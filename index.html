@@ -12,6 +12,9 @@
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <style>
   /* Global Styles */
   body {
@@ -34,10 +37,22 @@
     padding: 2.5rem;
     border-radius: 25px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.3); /* Premium shadow */
-    max-width: 700px;
+    max-width: 800px;
     width: 100%;
     box-sizing: border-box;
     animation: fadeInBounce 1.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #FF4500, #FF7F50, #87CEFA);
   }
 
   /* Logo */
@@ -64,19 +79,28 @@
     font-weight: 600;
   }
 
+  h3 {
+    font-size: 1.2rem;
+    margin: 1.5rem 0 0.5rem;
+    color: #FF4500;
+  }
+
   /* Paragraphs */
   p {
     font-size: 1rem;
     margin: 0.5rem 0 1rem 0;
     color: #555;
+    line-height: 1.6;
   }
 
   /* QR Code (static) */
   img.qr {
     margin: 1rem 0;
-    width: 40%;
-    max-width: 200px;
-    height: auto;
+    width: 180px;
+    height: 180px;
+    border: 8px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 12px;
   }
 
   /* Buttons */
@@ -89,12 +113,130 @@
     text-decoration: none;
     font-weight: 600;
     border-radius: 30px;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
     font-size: 1rem;
     animation: pulse 2s infinite;
+    box-shadow: 0 4px 10px rgba(255, 69, 0, 0.3);
   }
   .button:hover {
     background: #e03e00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 69, 0, 0.4);
+  }
+
+  /* Progress Bar */
+  .progress-container {
+    width: 100%;
+    height: 12px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    height: 100%;
+    width: 75%;
+    background: linear-gradient(90deg, #FF4500, #FF7F50);
+    border-radius: 10px;
+    animation: progressAnimation 2s ease-in-out infinite alternate;
+  }
+
+  /* Countdown Timer */
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 1.5rem 0;
+  }
+
+  .countdown-item {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    min-width: 70px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .countdown-number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #FF4500;
+  }
+
+  .countdown-label {
+    font-size: 0.8rem;
+    color: #777;
+    text-transform: uppercase;
+  }
+
+  /* Newsletter Form */
+  .newsletter {
+    margin: 1.5rem 0;
+  }
+
+  .newsletter-input {
+    padding: 14px 20px;
+    width: 70%;
+    max-width: 350px;
+    border: 2px solid #e0e0e0;
+    border-radius: 30px 0 0 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .newsletter-input:focus {
+    border-color: #FF4500;
+  }
+
+  .newsletter-button {
+    padding: 14px 25px;
+    background: #FF4500;
+    color: white;
+    border: none;
+    border-radius: 0 30px 30px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .newsletter-button:hover {
+    background: #e03e00;
+  }
+
+  /* Social Icons */
+  .social-icons {
+    margin: 1.5rem 0;
+  }
+
+  .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: #FF4500;
+    color: white;
+    border-radius: 50%;
+    margin: 0 8px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .social-icon:hover {
+    transform: translateY(-3px);
+    background: #e03e00;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 1.5rem;
+    color: #777;
+    font-size: 0.9rem;
   }
 
   /* Animations */
@@ -117,21 +259,38 @@
     100% { transform: scale(1); }
   }
 
+  @keyframes progressAnimation {
+    0% { width: 75%; }
+    100% { width: 78%; }
+  }
+
   /* Responsive Text */
   @media (max-width: 768px) {
     h1 { font-size: 1.6rem; }
     h2 { font-size: 1.2rem; }
+    h3 { font-size: 1.1rem; }
     p { font-size: 0.95rem; }
     .button { font-size: 0.95rem; padding: 12px 24px; }
+    .countdown-item { min-width: 60px; padding: 12px; }
+    .countdown-number { font-size: 1.5rem; }
+    .newsletter-input { width: 60%; }
   }
 
   @media (max-width: 480px) {
     h1 { font-size: 1.4rem; }
     h2 { font-size: 1rem; }
+    h3 { font-size: 1rem; }
     p { font-size: 0.9rem; }
     .logo { width: 70%; max-width: 200px; }
-    img.qr { width: 50%; max-width: 150px; }
-    .button { font-size: 0.9rem; padding: 10px 20px; }
+    img.qr { width: 140px; height: 140px; }
+    .button { font-size: 0.9rem; padding: 10px 20px; margin: 0.3rem; }
+    .countdown { gap: 8px; }
+    .countdown-item { min-width: 50px; padding: 8px; }
+    .countdown-number { font-size: 1.2rem; }
+    .countdown-label { font-size: 0.7rem; }
+    .newsletter-input { width: 55%; padding: 12px; }
+    .newsletter-button { padding: 12px 20px; }
+    .card { padding: 1.8rem; }
   }
 </style>
 </head>
@@ -145,20 +304,103 @@
     <h2>Meenakshi Mukundha Times</h2>
 
     <!-- Maintenance Message -->
-    <p>🚧 We are under maintenance – sorry for the inconvenience.<br>
-       We will be back soon with something amazing!</p>
-    <p>👉 Meanwhile, please scan the QR code below or click the links:</p>
+    <p>🚧 We're undergoing scheduled maintenance to improve your experience.</p>
+    <p>We'll be back soon with something amazing! Expected launch:</p>
+    
+    <!-- Countdown Timer -->
+    <div class="countdown">
+      <div class="countdown-item">
+        <div class="countdown-number" id="days">07</div>
+        <div class="countdown-label">Days</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-number" id="hours">12</div>
+        <div class="countdown-label">Hours</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-number" id="minutes">45</div>
+        <div class="countdown-label">Minutes</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-number" id="seconds">30</div>
+        <div class="countdown-label">Seconds</div>
+      </div>
+    </div>
 
-    <!-- QR Code (static) -->
-    <img src="qrcode.png" alt="QR Code to Portfolio PDF" class="qr"><br>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-bar"></div>
+    </div>
+    <p>Current progress: 75% complete</p>
+
+    <!-- QR Code Section -->
+    <h3>Access Our Resources</h3>
+    <p>Scan the QR code to view our portfolio</p>
+    <img src="qrcode.png" alt="QR Code to Portfolio PDF" class="qr">
 
     <!-- Buttons -->
-    <a href="https://drive.google.com/file/d/1RK_cxkmtGtKgg90PLHzhUD7XPR905UBI/view?usp=sharing" target="_blank" class="button">📄 View Company Portfolio</a>
-    <a href="https://drive.google.com/file/d/19tBSzROwPtuYI3uQEfedkKM1Za0wYCsc/view?usp=sharing" target="_blank" class="button">💻 Elite Laptop Deals & Service</a>
-    <a href="tel:7989261342" class="button">📞 Call Us</a>
-    <a href="https://wa.me/7989261342?text=Hello%20MM%20Times%2C%20I%20have%20a%20query" target="_blank" class="button">💬 WhatsApp</a>
-    <a href="mailto:services@mmtimes.in?subject=Customer%20Query%20-%20MM%20Times&body=Hello%20Team%2C%0A%0AMy%20Name%3A%20%0AMy%20Contact%3A%20%0AMy%20Query%3A%20" class="button">📧 Submit Query</a>
+    <div>
+      <a href="https://drive.google.com/file/d/1RK_cxkmtGtKgg90PLHzhUD7XPR905UBI/view?usp=sharing" target="_blank" class="button"><i class="fas fa-file-pdf"></i> View Company Portfolio</a>
+      <a href="https://drive.google.com/file/d/19tBSzROwPtuYI3uQEfedkKM1Za0wYCsc/view?usp=sharing" target="_blank" class="button"><i class="fas fa-laptop"></i> Elite Laptop Deals & Service</a>
+      <a href="tel:7989261342" class="button"><i class="fas fa-phone"></i> Call Us</a>
+      <a href="https://wa.me/7989261342?text=Hello%20MM%20Times%2C%20I%20have%20a%20query" target="_blank" class="button"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="mailto:services@mmtimes.in?subject=Customer%20Query%20-%20MM%20Times&body=Hello%20Team%2C%0A%0AMy%20Name%3A%20%0AMy%20Contact%3A%20%0AMy%20Query%3A%20" class="button"><i class="fas fa-envelope"></i> Submit Query</a>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div class="newsletter">
+      <h3>Get Notified When We Launch</h3>
+      <form id="newsletter-form">
+        <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+        <button type="submit" class="newsletter-button">Notify Me</button>
+      </form>
+    </div>
+
+    <!-- Social Media -->
+    <div class="social-icons">
+      <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>&copy; 2023 MM Times - Meenakshi Mukundha Times. All Rights Reserved.</p>
+    </div>
   </div>
+
+  <script>
+    // Countdown Timer Functionality
+    function updateCountdown() {
+      const targetDate = new Date();
+      targetDate.setDate(targetDate.getDate() + 7); // Set to 7 days from now
+      
+      const now = new Date();
+      const difference = targetDate - now;
+      
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+      
+      document.getElementById('days').textContent = days.toString().padStart(2, '0');
+      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    }
+    
+    // Initial call and set interval
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+    
+    // Newsletter form submission
+    document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = this.querySelector('input').value;
+      alert(`Thank you! We'll notify ${email} when we launch.`);
+      this.querySelector('input').value = '';
+    });
+  </script>
 </body>
 </html>
-
