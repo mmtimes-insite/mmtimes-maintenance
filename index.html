@@ -10,20 +10,26 @@
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
   /* Global Styles */
   :root {
-    --primary: #FF4500;
-    --primary-dark: #e03e00;
-    --secondary: #2c3e50;
+    --primary: #2c3e50;
+    --primary-dark: #1a252f;
+    --secondary: #e74c3c;
+    --secondary-light: #ff7f66;
     --accent: #3498db;
-    --light: #ffffff;
-    --gray: #555;
-    --gradient-start: #87CEFA;
-    --gradient-end: #FF7F50;
+    --accent-light: #5dade2;
+    --neutral: #f8f9fa;
+    --text: #2c3e50;
+    --text-light: #7f8c8d;
+    --gold: #d4af37;
+    --silver: #bdc3c7;
+    --gradient-start: #2c3e50;
+    --gradient-mid: #34495e;
+    --gradient-end: #1a252f;
   }
   
   * {
@@ -40,156 +46,92 @@
     min-height: 100vh;
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(-45deg, var(--gradient-start), var(--accent), var(--gradient-end));
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    color: #333;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+    background-attachment: fixed;
+    color: var(--neutral);
     text-align: center;
     padding: 1rem;
     position: relative;
     overflow-x: hidden;
   }
   
-  /* Animated background elements */
-  .bg-bubbles {
+  /* Geometric pattern overlay */
+  .geometric-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    opacity: 0.05;
+    background-image: 
+      radial-gradient(circle at 10% 20%, var(--gold) 1px, transparent 1px),
+      radial-gradient(circle at 30% 60%, var(--gold) 1px, transparent 1px),
+      radial-gradient(circle at 70% 40%, var(--gold) 1px, transparent 1px),
+      radial-gradient(circle at 90% 80%, var(--gold) 1px, transparent 1px);
+    background-size: 5% 5%;
     z-index: -1;
-    overflow: hidden;
   }
   
-  .bg-bubbles li {
-    position: absolute;
-    list-style: none;
-    display: block;
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0.15);
-    bottom: -160px;
-    border-radius: 50%;
-    animation: square 25s infinite;
-    transition-timing-function: linear;
-  }
-  
-  .bg-bubbles li:nth-child(1) {
-    left: 10%;
-    animation-delay: 0s;
-    width: 80px;
-    height: 80px;
-  }
-  
-  .bg-bubbles li:nth-child(2) {
-    left: 20%;
-    animation-delay: 2s;
-    animation-duration: 17s;
-    width: 60px;
-    height: 60px;
-  }
-  
-  .bg-bubbles li:nth-child(3) {
-    left: 25%;
-    animation-delay: 4s;
-  }
-  
-  .bg-bubbles li:nth-child(4) {
-    left: 40%;
-    animation-delay: 0s;
-    animation-duration: 22s;
-    width: 100px;
-    height: 100px;
-  }
-  
-  .bg-bubbles li:nth-child(5) {
-    left: 70%;
-    animation-delay: 3s;
-  }
-  
-  .bg-bubbles li:nth-child(6) {
-    left: 80%;
-    animation-delay: 2s;
-    width: 70px;
-    height: 70px;
-  }
-  
-  .bg-bubbles li:nth-child(7) {
-    left: 32%;
-    animation-delay: 6s;
-    width: 90px;
-    height: 90px;
-  }
-  
-  .bg-bubbles li:nth-child(8) {
-    left: 55%;
-    animation-delay: 8s;
-    animation-duration: 18s;
-    width: 50px;
-    height: 50px;
-  }
-  
-  .bg-bubbles li:nth-child(9) {
-    left: 25%;
-    animation-delay: 9s;
-    animation-duration: 20s;
-    width: 30px;
-    height: 30px;
-  }
-  
-  .bg-bubbles li:nth-child(10) {
-    left: 90%;
-    animation-delay: 11s;
-    width: 65px;
-    height: 65px;
-  }
-
   /* Card Styles */
   .card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 2.5rem;
-    border-radius: 25px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-    max-width: 750px;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(12px);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    max-width: 800px;
     width: 100%;
     box-sizing: border-box;
-    animation: fadeInBounce 1.5s ease-in-out;
+    animation: fadeInUp 1s ease-out;
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
   
   .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--secondary), var(--gold), var(--accent));
+    z-index: 2;
+  }
+  
+  .card::after {
     content: '';
     position: absolute;
     top: -50%;
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(to bottom right, rgba(255,255,255,0.2), rgba(255,255,255,0));
+    background: linear-gradient(to bottom right, 
+                rgba(255,255,255,0.2), 
+                rgba(255,255,255,0.1), 
+                rgba(255,255,255,0.05));
     transform: rotate(30deg);
     z-index: -1;
   }
 
   /* Logo */
   .logo {
-    width: 50%;
-    max-width: 250px;
+    width: 45%;
+    max-width: 220px;
     height: auto;
-    margin-bottom: 1.5rem;
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
     animation: floatLogo 3s ease-in-out infinite;
   }
 
   /* Headings */
   h1 {
-    font-size: 2.2rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
     color: var(--primary);
     font-weight: 800;
     font-family: 'Playfair Display', serif;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    letter-spacing: 0.5px;
   }
   
   h2 {
@@ -197,14 +139,30 @@
     margin-bottom: 1.5rem;
     color: var(--secondary);
     font-weight: 600;
+    letter-spacing: 0.5px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--gold);
+    border-radius: 3px;
   }
 
   /* Paragraphs */
   p {
-    font-size: 1rem;
-    margin: 0.5rem 0 1.5rem 0;
-    color: var(--gray);
-    line-height: 1.6;
+    font-size: 1.05rem;
+    margin: 1rem 0 1.5rem 0;
+    color: var(--text-light);
+    line-height: 1.7;
+    font-weight: 500;
   }
 
   /* QR Code (static) */
@@ -212,15 +170,17 @@
     position: relative;
     display: inline-block;
     margin: 1.5rem 0;
-    padding: 10px;
+    padding: 15px;
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0,0,0,0.05);
   }
   
   .qr-container:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
   }
   
   img.qr {
@@ -232,125 +192,181 @@
 
   /* Buttons */
   .buttons-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 2rem;
   }
   
   .button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 14px 24px;
+    padding: 16px 24px;
     background: var(--primary);
-    color: var(--light);
+    color: var(--neutral);
     text-decoration: none;
     font-weight: 600;
-    border-radius: 50px;
+    border-radius: 12px;
     transition: all 0.3s ease;
     font-size: 0.95rem;
-    box-shadow: 0 4px 10px rgba(255, 69, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(44, 62, 80, 0.2);
     position: relative;
     overflow: hidden;
-    min-width: 180px;
-  }
-  
-  .button:hover {
-    background: var(--primary-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(255, 69, 0, 0.4);
-  }
-  
-  .button:active {
-    transform: translateY(0);
+    z-index: 1;
+    letter-spacing: 0.5px;
   }
   
   .button::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: 0.5s;
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+  
+  .button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(44, 62, 80, 0.3);
   }
   
   .button:hover::before {
-    left: 100%;
+    opacity: 1;
+  }
+  
+  .button:nth-child(2) {
+    background: var(--secondary);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.25);
+  }
+  
+  .button:nth-child(2)::before {
+    background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+  }
+  
+  .button:nth-child(3) {
+    background: var(--accent);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.25);
+  }
+  
+  .button:nth-child(3)::before {
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  }
+  
+  .button:nth-child(4) {
+    background: #25D366;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.25);
+  }
+  
+  .button:nth-child(4)::before {
+    background: linear-gradient(135deg, #25D366, #3dec7c);
+  }
+  
+  .button:nth-child(5) {
+    background: var(--gold);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.25);
+  }
+  
+  .button:nth-child(5)::before {
+    background: linear-gradient(135deg, var(--gold), #e6c257);
   }
   
   .button i {
-    margin-right: 8px;
+    margin-right: 10px;
     font-size: 1.1rem;
   }
   
   /* Progress bar */
   .progress-container {
     width: 100%;
-    height: 8px;
+    height: 10px;
     background: rgba(0,0,0,0.1);
-    border-radius: 4px;
-    margin: 2rem 0 1rem;
+    border-radius: 5px;
+    margin: 2.5rem 0 1.5rem;
     overflow: hidden;
+    position: relative;
   }
   
   .progress-bar {
     height: 100%;
     width: 65%;
-    background: linear-gradient(90deg, var(--primary), var(--accent));
-    border-radius: 4px;
+    background: linear-gradient(90deg, var(--secondary), var(--gold), var(--accent));
+    border-radius: 5px;
     animation: progressAnimation 1.5s ease-in-out infinite alternate;
+    position: relative;
+    overflow: hidden;
   }
   
-  /* Countdown */
-  .countdown {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 1.5rem 0;
+  .progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 20px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 2s infinite;
   }
   
-  .countdown-item {
+  /* Status indicator */
+  .status {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    padding: 10px 15px;
-    background: rgba(255,255,255,0.8);
-    border-radius: 10px;
-    min-width: 70px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    justify-content: center;
+    margin: 1.5rem 0;
+    font-size: 1rem;
+    color: var(--text-light);
+    font-weight: 500;
   }
   
-  .countdown-number {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--primary);
+  .status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--secondary);
+    margin-right: 10px;
+    position: relative;
   }
   
-  .countdown-label {
-    font-size: 0.7rem;
-    color: var(--gray);
-    text-transform: uppercase;
-    font-weight: 600;
+  .status-dot::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--secondary);
+    opacity: 0.6;
+    animation: pulse 2s infinite;
   }
   
   /* Footer */
   .footer {
-    margin-top: 2rem;
-    color: rgba(255,255,255,0.9);
+    margin-top: 3rem;
+    color: rgba(255,255,255,0.85);
     font-size: 0.9rem;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    font-weight: 500;
+  }
+  
+  .footer a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer a:hover {
+    color: white;
+    text-decoration: underline;
   }
 
   /* Animations */
-  @keyframes fadeInBounce {
-    0% { opacity: 0; transform: translateY(-30px); }
-    50% { opacity: 1; transform: translateY(10px); }
-    70% { transform: translateY(-5px); }
-    100% { transform: translateY(0); }
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes floatLogo {
@@ -359,131 +375,93 @@
     100% { transform: translateY(0); }
   }
   
-  @keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  
-  @keyframes square {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; }
-  }
-  
   @keyframes progressAnimation {
     0% { width: 65%; }
     100% { width: 70%; }
   }
+  
+  @keyframes shimmer {
+    0% { left: -20px; }
+    100% { left: calc(100% + 20px); }
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(2); opacity: 0; }
+    100% { transform: scale(1); opacity: 0.6; }
+  }
 
   /* Responsive Design */
+  @media (max-width: 900px) {
+    .buttons-container {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
   @media (max-width: 768px) {
-    h1 { font-size: 1.8rem; }
+    h1 { font-size: 2rem; }
     h2 { font-size: 1.3rem; }
-    p { font-size: 0.95rem; }
+    p { font-size: 1rem; }
     .button { 
       font-size: 0.95rem; 
-      padding: 12px 20px;
-      min-width: 160px;
+      padding: 14px 20px;
     }
-    .countdown {
-      gap: 10px;
-    }
-    .countdown-item {
-      padding: 8px 12px;
-      min-width: 60px;
-    }
-    .countdown-number {
-      font-size: 1.5rem;
+    .card {
+      padding: 2.5rem;
     }
   }
 
+  @media (max-width: 600px) {
+    .buttons-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
   @media (max-width: 480px) {
-    h1 { font-size: 1.5rem; }
-    h2 { font-size: 1.1rem; }
-    p { font-size: 0.9rem; }
-    .logo { width: 70%; max-width: 200px; }
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.2rem; }
+    p { font-size: 0.95rem; }
+    .logo { width: 60%; max-width: 200px; }
     img.qr { width: 50%; max-width: 150px; }
     .button { 
       font-size: 0.9rem; 
-      padding: 10px 16px;
-      min-width: 140px;
-    }
-    .buttons-container {
-      gap: 8px;
-    }
-    .countdown {
-      gap: 5px;
-    }
-    .countdown-item {
-      padding: 6px 8px;
-      min-width: 50px;
-    }
-    .countdown-number {
-      font-size: 1.2rem;
-    }
-    .countdown-label {
-      font-size: 0.6rem;
+      padding: 12px 18px;
     }
     .card {
-      padding: 1.8rem;
+      padding: 2rem 1.5rem;
     }
   }
 </style>
 </head>
 <body>
-  <!-- Animated background elements -->
-  <ul class="bg-bubbles">
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
+  <!-- Geometric pattern overlay -->
+  <div class="geometric-overlay"></div>
 
   <div class="card">
     <!-- Company Logo -->
     <img src="logo.png" alt="MM Times Logo" class="logo">
 
     <!-- Headings -->
-    <h1>✨ Welcome to MM Times ✨</h1>
+    <h1>Welcome to MM Times</h1>
     <h2>Meenakshi Mukundha Times</h2>
 
     <!-- Maintenance Message -->
-    <p>🚧 We are under maintenance – sorry for the inconvenience.<br>
-       We will be back soon with something amazing!</p>
-    <p>👉 Meanwhile, please scan the QR code below or click the links:</p>
+    <p>We are currently enhancing our website to serve you better. Thank you for your patience during this maintenance period.</p>
+    <p>We'll be back soon with an improved experience and exciting new features!</p>
+    
+    <!-- Status indicator -->
+    <div class="status">
+      <div class="status-dot"></div>
+      Maintenance in progress - Estimated completion: 48 hours
+    </div>
     
     <!-- Progress bar -->
     <div class="progress-container">
       <div class="progress-bar"></div>
     </div>
-    
-    <!-- Countdown timer (static example) -->
-    <div class="countdown">
-      <div class="countdown-item">
-        <span class="countdown-number">02</span>
-        <span class="countdown-label">Days</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number">12</span>
-        <span class="countdown-label">Hours</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number">45</span>
-        <span class="countdown-label">Mins</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number">18</span>
-        <span class="countdown-label">Secs</span>
-      </div>
-    </div>
 
     <!-- QR Code (static) -->
+    <p>Scan the QR code to access our portfolio</p>
     <div class="qr-container">
       <img src="qrcode.png" alt="QR Code to Portfolio PDF" class="qr">
     </div>
@@ -509,29 +487,20 @@
   </div>
   
   <div class="footer">
-    <p>© 2023 MM Times - All Rights Reserved</p>
+    <p>© 2023 MM Times - All Rights Reserved | <a href="mailto:services@mmtimes.in">services@mmtimes.in</a></p>
   </div>
 
   <script>
     // Simple countdown animation (for demonstration only)
     document.addEventListener('DOMContentLoaded', function() {
-      const countdownNumbers = document.querySelectorAll('.countdown-number');
+      const progressBar = document.querySelector('.progress-bar');
+      let progress = 65;
       
       setInterval(() => {
-        countdownNumbers[3].innerText = String((parseInt(countdownNumbers[3].innerText) - 1 + 60) % 60).padStart(2, '0');
-        
-        if (countdownNumbers[3].innerText === '59') {
-          countdownNumbers[2].innerText = String((parseInt(countdownNumbers[2].innerText) - 1 + 60) % 60).padStart(2, '0');
-          
-          if (countdownNumbers[2].innerText === '59') {
-            countdownNumbers[1].innerText = String((parseInt(countdownNumbers[1].innerText) - 1 + 24) % 24).padStart(2, '0');
-            
-            if (countdownNumbers[1].innerText === '23') {
-              countdownNumbers[0].innerText = String(parseInt(countdownNumbers[0].innerText) - 1).padStart(2, '0');
-            }
-          }
-        }
-      }, 1000);
+        progress = progress + (Math.random() * 0.5);
+        if (progress > 85) progress = 65;
+        progressBar.style.width = progress + '%';
+      }, 1500);
     });
   </script>
 </body>
