@@ -3,19 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MM Times - Under Maintenance</title>
 
-  <!-- Title & Meta -->
-  <title>MM Times - Meenakshi Mukundha Times | Official Website</title>
-  <meta name="description" content="MM Times (Meenakshi Mukundha Times) – official company website. Explore our portfolio, services, and contact us for business queries. Website under scheduled maintenance.">
-  <meta name="keywords" content="MM Times, Meenakshi Mukundha Times, MM Times services, laptop deals, portfolio, business services">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="MM Times (Meenakshi Mukundha Times) - Official website is currently under scheduled maintenance. We will be back online shortly with new features and updates.">
+  <meta name="keywords" content="MM Times, Meenakshi Mukundha Times, MM Times India, MM Times services, MM Times portfolio">
   <meta name="author" content="MM Times">
+  <meta name="robots" content="index, follow">
 
-  <!-- Open Graph (for sharing) -->
+  <!-- Canonical -->
+  <link rel="canonical" href="https://mmtimes.in/">
+
+  <!-- Sitemap -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://mmtimes.in/sitemap.xml">
+
+  <!-- Open Graph / Facebook -->
   <meta property="og:title" content="MM Times - Official Website">
-  <meta property="og:description" content="Welcome to MM Times (Meenakshi Mukundha Times). Our website is currently under maintenance, but you can explore our portfolio and services.">
-  <meta property="og:image" content="https://mmtimes.in/logo.png">
+  <meta property="og:description" content="We are currently enhancing our website to serve you better. Thank you for your patience during this maintenance period.">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://mmtimes.in/">
+  <meta property="og:image" content="https://mmtimes.in/logo.png">
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MM Times - Official Website">
+  <meta name="twitter:description" content="We are currently enhancing our website to serve you better. Thank you for your patience during this maintenance period.">
+  <meta name="twitter:image" content="https://mmtimes.in/logo.png">
 
   <!-- Favicon setup -->
   <link rel="icon" href="favicon.png" type="image/png">
@@ -25,21 +38,134 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- ✅ keep all your existing CSS below (no need to remove anything) -->
   <style>
-    /* your styles remain here */
+    /* --- Your CSS (unchanged for design) --- */
+    /* Global Styles */
+    :root {
+      --primary: #2c3e50;
+      --primary-dark: #1a252f;
+      --secondary: #e74c3c;
+      --secondary-light: #ff7f66;
+      --accent: #3498db;
+      --accent-light: #5dade2;
+      --neutral: #f8f9fa;
+      --text: #2c3e50;
+      --text-light: #7f8c8d;
+      --gold: #d4af37;
+      --silver: #bdc3c7;
+      --gradient-start: #2c3e50;
+      --gradient-mid: #34495e;
+      --gradient-end: #1a252f;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;margin:0;font-family:'Montserrat',sans-serif;background:linear-gradient(135deg,var(--gradient-start),var(--gradient-mid),var(--gradient-end));background-attachment:fixed;color:var(--neutral);text-align:center;padding:1rem;position:relative;overflow-x:hidden}
+    .geometric-overlay{position:absolute;top:0;left:0;width:100%;height:100%;opacity:.05;background-image:radial-gradient(circle at 10% 20%,var(--gold) 1px,transparent 1px),radial-gradient(circle at 30% 60%,var(--gold) 1px,transparent 1px),radial-gradient(circle at 70% 40%,var(--gold) 1px,transparent 1px),radial-gradient(circle at 90% 80%,var(--gold) 1px,transparent 1px);background-size:5% 5%;z-index:-1}
+    .card{background:rgba(255,255,255,.97);backdrop-filter:blur(12px);padding:3rem;border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.25),0 0 0 1px rgba(255,255,255,.1);max-width:800px;width:100%;box-sizing:border-box;animation:fadeInUp 1s ease-out;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.2)}
+    .card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--secondary),var(--gold),var(--accent));z-index:2}
+    .logo{width:45%;max-width:220px;height:auto;margin-bottom:2rem;filter:drop-shadow(0 5px 15px rgba(0,0,0,.2));animation:floatLogo 3s ease-in-out infinite}
+    h1{font-size:2.5rem;margin-bottom:.75rem;color:var(--primary);font-weight:800;font-family:'Playfair Display',serif;letter-spacing:.5px}
+    h2{font-size:1.5rem;margin-bottom:1.5rem;color:var(--secondary);font-weight:600;letter-spacing:.5px;position:relative;display:inline-block}
+    h2::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:50px;height:3px;background:var(--gold);border-radius:3px}
+    p{font-size:1.05rem;margin:1rem 0 1.5rem 0;color:var(--text-light);line-height:1.7;font-weight:500}
+    .qr-container{position:relative;display:inline-block;margin:1.5rem 0;padding:15px;background:white;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.1);transition:all .4s ease;border:1px solid rgba(0,0,0,.05)}
+    .qr-container:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 15px 35px rgba(0,0,0,.15)}
+    img.qr{width:40%;max-width:200px;height:auto;display:block}
+    .buttons-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:2rem}
+    .button{display:inline-flex;align-items:center;justify-content:center;padding:16px 24px;background:var(--primary);color:var(--neutral);text-decoration:none;font-weight:600;border-radius:12px;transition:all .3s ease;font-size:.95rem;box-shadow:0 5px 15px rgba(44,62,80,.2);position:relative;overflow:hidden;z-index:1;letter-spacing:.5px}
+    .button:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(44,62,80,.3)}
+    .button:nth-child(2){background:var(--secondary)}
+    .button:nth-child(3){background:var(--accent)}
+    .button:nth-child(4){background:#25D366}
+    .button:nth-child(5){background:var(--gold)}
+    .button i{margin-right:10px;font-size:1.1rem}
+    .progress-container{width:100%;height:10px;background:rgba(0,0,0,.1);border-radius:5px;margin:2.5rem 0 1.5rem;overflow:hidden;position:relative}
+    .progress-bar{height:100%;width:65%;background:linear-gradient(90deg,var(--secondary),var(--gold),var(--accent));border-radius:5px;animation:progressAnimation 1.5s ease-in-out infinite alternate;position:relative;overflow:hidden}
+    .status{display:flex;align-items:center;justify-content:center;margin:1.5rem 0;font-size:1rem;color:var(--text-light);font-weight:500}
+    .status-dot{width:10px;height:10px;border-radius:50%;background:var(--secondary);margin-right:10px;position:relative}
+    .status-dot::after{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:var(--secondary);opacity:.6;animation:pulse 2s infinite}
+    .footer{margin-top:3rem;color:rgba(255,255,255,.85);font-size:.9rem;text-shadow:1px 1px 2px rgba(0,0,0,.2);font-weight:500}
+    .footer a{color:var(--gold);text-decoration:none;transition:color .3s ease}
+    .footer a:hover{color:white;text-decoration:underline}
+    @keyframes fadeInUp{0%{opacity:0;transform:translateY(40px)}100%{opacity:1;transform:translateY(0)}}
+    @keyframes floatLogo{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
+    @keyframes progressAnimation{0%{width:65%}100%{width:70%}}
+    @keyframes pulse{0%{transform:scale(1);opacity:.6}50%{transform:scale(2);opacity:0}100%{transform:scale(1);opacity:.6}}
   </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MM Times",
+    "url": "https://mmtimes.in/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://mmtimes.in/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 </head>
 <body>
-  <!-- your existing HTML design remains here -->
+  <!-- Geometric pattern overlay -->
+  <div class="geometric-overlay"></div>
 
-  <!-- Add some text content for crawlability -->
-  <div style="max-width:800px;margin:2rem auto;color:#fff;text-align:center;font-size:0.95rem;line-height:1.6;">
-    <h3>About MM Times</h3>
-    <p>MM Times (Meenakshi Mukundha Times) is dedicated to providing innovative solutions, premium laptop services, and professional business support. Our mission is to deliver high-quality services with trust and excellence.</p>
-    <p>Even while our site is under maintenance, you can still reach us through our portfolio, contact options, and service links provided above.</p>
+  <div class="card">
+    <img src="logo.png" alt="MM Times Logo" class="logo">
+    <h1>Welcome to MM Times</h1>
+    <h2>Meenakshi Mukundha Times</h2>
+    <p>We are currently enhancing our website to serve you better. Thank you for your patience during this maintenance period.</p>
+    <p>We'll be back soon with an improved experience and exciting new features!</p>
+
+    <div class="status">
+      <div class="status-dot"></div>
+      Maintenance in progress - Estimated completion: 48 hours
+    </div>
+
+    <div class="progress-container">
+      <div class="progress-bar"></div>
+    </div>
+
+    <p>Scan the QR code to access our portfolio</p>
+    <div class="qr-container">
+      <img src="qrcode.png" alt="QR Code to Portfolio PDF" class="qr">
+    </div>
+
+    <div class="buttons-container">
+      <a href="https://drive.google.com/file/d/1RK_cxkmtGtKgg90PLHzhUD7XPR905UBI/view?usp=sharing" target="_blank" class="button">
+        <i class="fas fa-file-pdf"></i> View Company Portfolio
+      </a>
+      <a href="https://drive.google.com/file/d/19tBSzROwPtuYI3uQEfedkKM1Za0wYCsc/view?usp=sharing" target="_blank" class="button">
+        <i class="fas fa-laptop"></i> Elite Laptop Deals & Service
+      </a>
+      <a href="tel:7989261342" class="button">
+        <i class="fas fa-phone"></i> Call Us
+      </a>
+      <a href="https://wa.me/7989261342?text=Hello%20MM%20Times%2C%20I%20have%20a%20query" target="_blank" class="button">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="mailto:services@mmtimes.in?subject=Customer%20Query%20-%20MM%20Times&body=Hello%20Team%2C%0A%0AMy%20Name%3A%20%0AMy%20Contact%3A%20%0AMy%20Query%3A%20" class="button">
+        <i class="fas fa-envelope"></i> Submit Query
+      </a>
+    </div>
   </div>
 
-  <!-- footer, scripts, etc. stay unchanged -->
+  <div class="footer">
+    <p>© 2023 MM Times - All Rights Reserved | <a href="mailto:services@mmtimes.in">services@mmtimes.in</a></p>
+  </div>
+
+  <script>
+    // Simple progress animation
+    document.addEventListener('DOMContentLoaded', function() {
+      const progressBar = document.querySelector('.progress-bar');
+      let progress = 65;
+      setInterval(() => {
+        progress = progress + (Math.random() * 0.5);
+        if (progress > 85) progress = 65;
+        progressBar.style.width = progress + '%';
+      }, 1500);
+    });
+  </script>
 </body>
 </html>
