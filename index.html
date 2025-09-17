@@ -102,7 +102,7 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             padding: 3rem;
-            border-radius: 20px;
+            border-radius: 20px 20px 0 0;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.15);
             max-width: 800px;
             width: 100%;
@@ -111,6 +111,7 @@
             position: relative;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.3);
+            border-bottom: none;
         }
         
         .card::before {
@@ -137,6 +138,21 @@
                         rgba(255,255,255,0.05));
             transform: rotate(30deg);
             z-index: -1;
+        }
+
+        /* Transparent section styles */
+        .transparent-section {
+            max-width: 800px;
+            width: 100%;
+            padding: 2rem 3rem 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-top: none;
+            margin-bottom: 2rem;
+            animation: fadeIn 1.2s ease-out;
         }
 
         /* Logo */
@@ -190,22 +206,30 @@
             font-weight: 500;
         }
 
+        .transparent-text {
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+        }
+
         /* QR Code (static) */
         .qr-container {
             position: relative;
             display: inline-block;
             margin: 1.5rem 0;
             padding: 15px;
-            background: white;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             transition: all 0.4s ease;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid rgba(255, 255, 255, 0.25);
         }
         
         .qr-container:hover {
             transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.2);
         }
         
         img.qr {
@@ -228,18 +252,20 @@
             align-items: center;
             justify-content: center;
             padding: 16px 24px;
-            background: var(--blue);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
             color: var(--neutral);
             text-decoration: none;
             font-weight: 600;
             border-radius: 12px;
             transition: all 0.3s ease;
             font-size: 0.95rem;
-            box-shadow: 0 5px 15px rgba(65, 105, 225, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
             position: relative;
             overflow: hidden;
             z-index: 1;
             letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
         }
         
         .button::before {
@@ -257,16 +283,16 @@
         
         .button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(65, 105, 225, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 0.25);
         }
         
         .button:hover::before {
-            opacity: 1;
+            opacity: 0.8;
         }
         
         .button:nth-child(2) {
-            background: var(--red);
-            box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
         }
         
         .button:nth-child(2)::before {
@@ -274,8 +300,7 @@
         }
         
         .button:nth-child(3) {
-            background: var(--purple);
-            box-shadow: 0 5px 15px rgba(147, 112, 219, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
         }
         
         .button:nth-child(3)::before {
@@ -283,8 +308,7 @@
         }
         
         .button:nth-child(4) {
-            background: #25D366;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
         }
         
         .button:nth-child(4)::before {
@@ -292,8 +316,7 @@
         }
         
         .button:nth-child(5) {
-            background: var(--orange);
-            box-shadow: 0 5px 15px rgba(255, 127, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
         }
         
         .button:nth-child(5)::before {
@@ -382,27 +405,35 @@
             justify-content: center;
             width: 50px;
             height: 50px;
-            background: var(--blue);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
             color: white;
             border-radius: 50%;
             font-size: 1.5rem;
             transition: all 0.3s ease;
             text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .social-icon:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            background: rgba(255, 255, 255, 0.25);
         }
         
-        .social-icon.facebook { background: #3b5998; }
-        .social-icon.twitter { background: #1da1f2; }
+        .social-icon.facebook { background: rgba(59, 89, 152, 0.7); }
+        .social-icon.twitter { background: rgba(29, 161, 242, 0.7); }
         .social-icon.instagram { 
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            background: linear-gradient(45deg, 
+                rgba(240, 148, 51, 0.7), 
+                rgba(230, 104, 60, 0.7), 
+                rgba(220, 39, 67, 0.7), 
+                rgba(204, 35, 102, 0.7), 
+                rgba(188, 24, 136, 0.7));
         }
-        .social-icon.linkedin { background: #0077b5; }
-        .social-icon.youtube { background: #ff0000; }
+        .social-icon.linkedin { background: rgba(0, 119, 181, 0.7); }
+        .social-icon.youtube { background: rgba(255, 0, 0, 0.7); }
         
         /* Footer */
         .footer {
@@ -428,6 +459,11 @@
         @keyframes fadeInUp {
             0% { opacity: 0; transform: translateY(40px); }
             100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
         @keyframes floatLogo {
@@ -467,7 +503,7 @@
                 font-size: 0.95rem; 
                 padding: 14px 20px;
             }
-            .card {
+            .card, .transparent-section {
                 padding: 2.5rem;
             }
             .social-icon {
@@ -497,7 +533,7 @@
                 font-size: 0.9rem; 
                 padding: 12px 18px;
             }
-            .card {
+            .card, .transparent-section {
                 padding: 2rem 1.5rem;
             }
             .social-icon {
@@ -539,7 +575,10 @@
         <p style="font-size:1.05rem; font-weight:600; color:var(--dark-blue); margin-top:2rem; margin-bottom:1rem;">
            👉 Please Scan the QR code or use the following quick links to view our company portfolio, explore elite laptop deals, or get in touch with us directly:
         </p>
+    </div> <!-- End of card -->
 
+    <!-- Transparent section for QR code and buttons -->
+    <div class="transparent-section">
         <!-- QR Code (static) -->
         <div class="qr-container">
             <img src="qrcode.png" alt="QR Code to MM Times Portfolio PDF - IT Services and Laptop Deals" class="qr">
@@ -573,12 +612,12 @@
             <a href="javascript:void(0);" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
         </div>
     
-    <div class="footer">
         <div class="footer">
            <p>© <span id="year"></span> MM Times - All Rights Reserved | 
               <a href="mailto:services@mmtimes.in">services@mmtimes.in</a>
            </p>
-    </div>
+        </div>
+    </div> <!-- End of transparent section -->
 
     <script>
         // Auto-update footer year
@@ -586,7 +625,6 @@
             const yearSpan = document.getElementById("year");
             if (yearSpan) {
               yearSpan.textContent = new Date().getFullYear();
-            
             }
           });
     </script>
