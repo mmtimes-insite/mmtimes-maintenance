@@ -30,6 +30,11 @@
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -74,6 +79,29 @@
             padding: 1rem;
             position: relative;
             overflow-x: hidden;
+        }
+        
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--secondary);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* Focus styles for accessibility */
+        button:focus,
+        a:focus {
+            outline: 3px solid var(--gold);
+            outline-offset: 2px;
         }
         
         /* Geometric pattern overlay */
@@ -144,6 +172,24 @@
             filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
             animation: floatLogo 3s ease-in-out infinite;
         }
+        
+        /* Logo fallback styling */
+        .logo-fallback {
+            display: inline-block;
+            width: 180px;
+            height: 180px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            animation: floatLogo 3s ease-in-out infinite;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
 
         /* Headings */
         h1 {
@@ -209,6 +255,31 @@
             max-width: 200px;
             height: auto;
             display: block;
+        }
+        
+        /* QR Code fallback */
+        .qr-fallback {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin: 1.5rem 0;
+        }
+        
+        .qr-placeholder {
+            width: 150px;
+            height: 150px;
+            background: #f1f1f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .qr-placeholder i {
+            font-size: 3rem;
+            color: #ccc;
         }
 
         /* Buttons */
@@ -502,15 +573,62 @@
                 font-size: 1.2rem;
             }
         }
+        
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary: #000;
+                --text: #000;
+                --text-light: #333;
+            }
+            
+            .card {
+                background: #fff;
+                border: 2px solid #000;
+            }
+            
+            .button {
+                border: 2px solid #000;
+            }
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .logo,
+            .logo-fallback {
+                animation: none;
+            }
+            
+            .progress-bar {
+                animation: none;
+            }
+            
+            .status-dot::after {
+                animation: none;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Geometric pattern overlay -->
-    <div class="geometric-overlay"></div>
+    <!-- Skip link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <div class="card">
-        <!-- Company Logo -->
-        <img src="logo.png" alt="MM Times Logo - IT Services and Laptop Sales" class="logo">
+    <!-- Geometric pattern overlay -->
+    <div class="geometric-overlay" aria-hidden="true"></div>
+
+    <div class="card" id="main-content">
+        <!-- Company Logo with fallback -->
+        <object data="logo.png" type="image/png" class="logo" aria-label="MM Times Logo">
+            <div class="logo-fallback" aria-hidden="true">MMT</div>
+        </object>
 
         <!-- Headings -->
         <h1>Welcome to MM Times</h1>
@@ -518,16 +636,16 @@
 
         <!-- Maintenance Message -->
         <p>We are currently enhancing our website to serve you better. Thank you for your patience during this maintenance period.</p>
-        <p>MM Times provides comprehensive  Research and Development, Laptop Sales, Material Procurement, Web Solutions, Workshops, Projects. We'll be back soon with an improved experience and exciting new features!</p>
+        <p>MM Times provides comprehensive Research and Development, Laptop Sales, Material Procurement, Web Solutions, Workshops, Projects. We'll be back soon with an improved experience and exciting new features!</p>
         
         <!-- Status indicator -->
         <div class="status">
-            <div class="status-dot"></div>
-            Maintenance in progress - Estimated completion:  15 days
+            <div class="status-dot" aria-hidden="true"></div>
+            Maintenance in progress - Estimated completion: 15 days
         </div>
         
         <!-- Progress bar -->
-        <div class="progress-container">
+        <div class="progress-container" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
             <div class="progress-bar"></div>
         </div>
 
@@ -536,44 +654,61 @@
            👉 Please Scan the QR code or use the following quick links to view our company portfolio, explore elite laptop deals, or get in touch with us directly:
         </p>
 
-        <!-- QR Code (static) -->
+        <!-- QR Code with fallback -->
         <div class="qr-container">
-            <img src="qrcode.png" alt="QR Code to MM Times Portfolio PDF - IT Services and Laptop Deals" class="qr">
+            <object data="qrcode.png" type="image/png" class="qr" aria-label="QR Code to MM Times Portfolio PDF">
+                <div class="qr-fallback">
+                    <div class="qr-placeholder">
+                        <i class="fas fa-qrcode" aria-hidden="true"></i>
+                    </div>
+                    <p style="color: var(--text-light); font-size: 0.9rem;">QR Code not available<br>Use the links below</p>
+                </div>
+            </object>
         </div>
 
         <!-- Buttons -->
         <div class="buttons-container">
             <a href="https://drive.google.com/file/d/1RK_cxkmtGtKgg90PLHzhUD7XPR905UBI/view?usp=sharing" target="_blank" class="button">
-               <i class="fas fa-file-pdf"></i> View Company Portfolio
+               <i class="fas fa-file-pdf" aria-hidden="true"></i> View Company Portfolio
             </a>
             <a href="https://drive.google.com/file/d/19tBSzROwPtuYI3uQEfedkKM1Za0wYCsc/view?usp=sharing" target="_blank" class="button">
-               <i class="fas fa-laptop"></i> Elite Laptop Deals & Service
+               <i class="fas fa-laptop" aria-hidden="true"></i> Elite Laptop Deals & Service
             </a>
             <a href="tel:7989261342" class="button">
-               <i class="fas fa-phone"></i> Call Us
+               <i class="fas fa-phone" aria-hidden="true"></i> Call Us
             </a>
               <a href="https://wa.me/7989261342?text=Hello%20MM%20Times%2C%20I%20have%20a%20query" target="_blank" class="button">
-                 <i class="fab fa-whatsapp"></i> WhatsApp
+                 <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
             </a>
             <a href="mailto:services@mmtimes.in?subject=Customer%20Query%20-%20MM%20Times&body=Hello%20Team%2C%0A%0AMy%20Name%3A%20%0AMy%20Contact%3A%20%0AMy%20Query%3A%20" class="button">
-                 <i class="fas fa-envelope"></i> Submit Query
+                 <i class="fas fa-envelope" aria-hidden="true"></i> Submit Query
             </a>
         </div>
 
         <!-- Social Media Icons -->
         <div class="social-media">
-            <a href="javascript:void(0);" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="javascript:void(0);" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
-            <a href="javascript:void(0);" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
-            <a href="javascript:void(0);" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
-            <a href="javascript:void(0);" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/MMTimesOfficial" target="_blank" class="social-icon facebook" aria-label="Visit our Facebook page">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="https://twitter.com/MMTimesOfficial" target="_blank" class="social-icon twitter" aria-label="Visit our Twitter page">
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.instagram.com/MMTimesOfficial" target="_blank" class="social-icon instagram" aria-label="Visit our Instagram page">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/MMTimesOfficial" target="_blank" class="social-icon linkedin" aria-label="Visit our LinkedIn page">
+                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.youtube.com/@MMTimesOfficial" target="_blank" class="social-icon youtube" aria-label="Visit our YouTube channel">
+                <i class="fab fa-youtube" aria-hidden="true"></i>
+            </a>
         </div>
     
-    <div class="footer">
         <div class="footer">
-           <p>© <span id="year"></span> MM Times - All Rights Reserved | 
-              <a href="mailto:services@mmtimes.in">services@mmtimes.in</a>
-           </p>
+            <p>© <span id="year"></span> MM Times - All Rights Reserved | 
+                <a href="mailto:services@mmtimes.in">services@mmtimes.in</a>
+            </p>
+        </div>
     </div>
 
     <script>
@@ -581,10 +716,17 @@
         document.addEventListener("DOMContentLoaded", function() {
             const yearSpan = document.getElementById("year");
             if (yearSpan) {
-              yearSpan.textContent = new Date().getFullYear();
-            
+                yearSpan.textContent = new Date().getFullYear();
             }
-          });
+            
+            // Add loading optimization for external resources
+            if ('loading' in HTMLImageElement.prototype) {
+                const images = document.querySelectorAll('img[loading="lazy"]');
+                images.forEach(img => {
+                    img.loading = 'lazy';
+                });
+            }
+        });
     </script>
 </body>
 </html>
