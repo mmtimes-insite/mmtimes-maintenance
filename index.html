@@ -30,11 +30,6 @@
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     
-    <!-- Preload critical resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -42,20 +37,16 @@
     <style>
         /* Global Styles */
         :root {
-            --primary: #2c3e50;
-            --primary-dark: #1a252f;
-            --secondary: #e74c3c;
-            --secondary-light: #ff7f66;
-            --accent: #3498db;
-            --accent-light: #5dade2;
-            --neutral: #f8f9fa;
-            --text: #2c3e50;
+            --white: #ffffff;
+            --sky-blue: #87ceeb;
+            --red: #ff4d4d;
+            --orange: #ff7f00;
+            --blue: #4169e1;
+            --purple: #9370db;
+            --dark-blue: #1a2a6c;
+            --text-dark: #2c3e50;
             --text-light: #7f8c8d;
-            --gold: #d4af37;
-            --silver: #bdc3c7;
-            --gradient-start: #2c3e50;
-            --gradient-mid: #34495e;
-            --gradient-end: #1a252f;
+            --neutral: #f8f9fa;
         }
         
         * {
@@ -72,36 +63,21 @@
             min-height: 100vh;
             margin: 0;
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            background: linear-gradient(135deg, var(--sky-blue), var(--blue), var(--purple), var(--red), var(--orange));
+            background-size: 400% 400%;
             background-attachment: fixed;
             color: var(--neutral);
             text-align: center;
             padding: 1rem;
             position: relative;
             overflow-x: hidden;
+            animation: gradientBG 15s ease infinite;
         }
         
-        /* Skip link for accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--secondary);
-            color: white;
-            padding: 8px;
-            z-index: 100;
-            transition: top 0.3s;
-        }
-        
-        .skip-link:focus {
-            top: 0;
-        }
-        
-        /* Focus styles for accessibility */
-        button:focus,
-        a:focus {
-            outline: 3px solid var(--gold);
-            outline-offset: 2px;
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
         /* Geometric pattern overlay */
@@ -111,30 +87,30 @@
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0.05;
+            opacity: 0.08;
             background-image: 
-                radial-gradient(circle at 10% 20%, var(--gold) 1px, transparent 1px),
-                radial-gradient(circle at 30% 60%, var(--gold) 1px, transparent 1px),
-                radial-gradient(circle at 70% 40%, var(--gold) 1px, transparent 1px),
-                radial-gradient(circle at 90% 80%, var(--gold) 1px, transparent 1px);
+                radial-gradient(circle at 10% 20%, var(--white) 1px, transparent 1px),
+                radial-gradient(circle at 30% 60%, var(--white) 1px, transparent 1px),
+                radial-gradient(circle at 70% 40%, var(--white) 1px, transparent 1px),
+                radial-gradient(circle at 90% 80%, var(--white) 1px, transparent 1px);
             background-size: 5% 5%;
             z-index: -1;
         }
         
         /* Card Styles */
         .card {
-            background: rgba(255, 255, 255, 0.97);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             padding: 3rem;
             border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.15);
             max-width: 800px;
             width: 100%;
             box-sizing: border-box;
             animation: fadeInUp 1s ease-out;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
         .card::before {
@@ -144,7 +120,7 @@
             left: 0;
             right: 0;
             height: 5px;
-            background: linear-gradient(90deg, var(--secondary), var(--gold), var(--accent));
+            background: linear-gradient(90deg, var(--red), var(--orange), var(--blue), var(--purple));
             z-index: 2;
         }
         
@@ -172,30 +148,12 @@
             filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
             animation: floatLogo 3s ease-in-out infinite;
         }
-        
-        /* Logo fallback styling */
-        .logo-fallback {
-            display: inline-block;
-            width: 180px;
-            height: 180px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 2rem;
-            animation: floatLogo 3s ease-in-out infinite;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
 
         /* Headings */
         h1 {
             font-size: 2.5rem;
             margin-bottom: 0.75rem;
-            color: var(--primary);
+            color: var(--dark-blue);
             font-weight: 800;
             font-family: 'Playfair Display', serif;
             letter-spacing: 0.5px;
@@ -204,7 +162,7 @@
         h2 {
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
-            color: var(--secondary);
+            color: var(--red);
             font-weight: 600;
             letter-spacing: 0.5px;
             position: relative;
@@ -219,7 +177,7 @@
             transform: translateX(-50%);
             width: 50px;
             height: 3px;
-            background: var(--gold);
+            background: linear-gradient(90deg, var(--orange), var(--blue));
             border-radius: 3px;
         }
 
@@ -227,7 +185,7 @@
         p {
             font-size: 1.05rem;
             margin: 1rem 0 1.5rem 0;
-            color: var(--text-light);
+            color: var(--text-dark);
             line-height: 1.7;
             font-weight: 500;
         }
@@ -252,34 +210,9 @@
         
         img.qr {
             width: 40%;
-            max-width: 40px;
+            max-width: 200px;
             height: auto;
             display: block;
-        }
-        
-        /* QR Code fallback */
-        .qr-fallback {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            margin: 1.5rem 0;
-        }
-        
-        .qr-placeholder {
-            width: 150px;
-            height: 150px;
-            background: #f1f1f1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            margin-bottom: 10px;
-        }
-        
-        .qr-placeholder i {
-            font-size: 3rem;
-            color: #ccc;
         }
 
         /* Buttons */
@@ -295,14 +228,14 @@
             align-items: center;
             justify-content: center;
             padding: 16px 24px;
-            background: var(--primary);
+            background: var(--blue);
             color: var(--neutral);
             text-decoration: none;
             font-weight: 600;
             border-radius: 12px;
             transition: all 0.3s ease;
             font-size: 0.95rem;
-            box-shadow: 0 5px 15px rgba(44, 62, 80, 0.2);
+            box-shadow: 0 5px 15px rgba(65, 105, 225, 0.3);
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -316,7 +249,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            background: linear-gradient(135deg, var(--purple), var(--blue));
             opacity: 0;
             transition: opacity 0.3s ease;
             z-index: -1;
@@ -324,7 +257,7 @@
         
         .button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(44, 62, 80, 0.3);
+            box-shadow: 0 8px 20px rgba(65, 105, 225, 0.4);
         }
         
         .button:hover::before {
@@ -332,26 +265,26 @@
         }
         
         .button:nth-child(2) {
-            background: var(--secondary);
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.25);
+            background: var(--red);
+            box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
         }
         
         .button:nth-child(2)::before {
-            background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+            background: linear-gradient(135deg, var(--orange), var(--red));
         }
         
         .button:nth-child(3) {
-            background: var(--accent);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.25);
+            background: var(--purple);
+            box-shadow: 0 5px 15px rgba(147, 112, 219, 0.3);
         }
         
         .button:nth-child(3)::before {
-            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            background: linear-gradient(135deg, var(--blue), var(--purple));
         }
         
         .button:nth-child(4) {
             background: #25D366;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.25);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
         }
         
         .button:nth-child(4)::before {
@@ -359,12 +292,12 @@
         }
         
         .button:nth-child(5) {
-            background: var(--gold);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.25);
+            background: var(--orange);
+            box-shadow: 0 5px 15px rgba(255, 127, 0, 0.3);
         }
         
         .button:nth-child(5)::before {
-            background: linear-gradient(135deg, var(--gold), #e6c257);
+            background: linear-gradient(135deg, var(--red), var(--orange));
         }
         
         .button i {
@@ -386,7 +319,7 @@
         .progress-bar {
             height: 100%;
             width: 65%;
-            background: linear-gradient(90deg, var(--secondary), var(--gold), var(--accent));
+            background: linear-gradient(90deg, var(--red), var(--orange), var(--blue), var(--purple));
             border-radius: 5px;
             animation: progressAnimation 1.5s ease-in-out infinite alternate;
             position: relative;
@@ -411,7 +344,7 @@
             justify-content: center;
             margin: 1.5rem 0;
             font-size: 1rem;
-            color: var(--text-light);
+            color: var(--text-dark);
             font-weight: 500;
         }
         
@@ -419,7 +352,7 @@
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: var(--secondary);
+            background: var(--red);
             margin-right: 10px;
             position: relative;
         }
@@ -430,7 +363,7 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background: var(--secondary);
+            background: var(--red);
             opacity: 0.6;
             animation: pulse 2s infinite;
         }
@@ -449,7 +382,7 @@
             justify-content: center;
             width: 50px;
             height: 50px;
-            background: var(--primary);
+            background: var(--blue);
             color: white;
             border-radius: 50%;
             font-size: 1.5rem;
@@ -474,14 +407,14 @@
         /* Footer */
         .footer {
             margin-top: 2rem;
-            color: rgba(255,255,255,0.85);
+            color: rgba(255,255,255,0.9);
             font-size: 0.9rem;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
             font-weight: 500;
         }
         
         .footer a {
-            color: var(--gold);
+            color: var(--sky-blue);
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -573,62 +506,15 @@
                 font-size: 1.2rem;
             }
         }
-        
-        /* High contrast mode support */
-        @media (prefers-contrast: high) {
-            :root {
-                --primary: #000;
-                --text: #000;
-                --text-light: #333;
-            }
-            
-            .card {
-                background: #fff;
-                border: 2px solid #000;
-            }
-            
-            .button {
-                border: 2px solid #000;
-            }
-        }
-        
-        /* Reduced motion support */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-            
-            .logo,
-            .logo-fallback {
-                animation: none;
-            }
-            
-            .progress-bar {
-                animation: none;
-            }
-            
-            .status-dot::after {
-                animation: none;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Skip link for keyboard users -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
     <!-- Geometric pattern overlay -->
-    <div class="geometric-overlay" aria-hidden="true"></div>
+    <div class="geometric-overlay"></div>
 
-    <div class="card" id="main-content">
-        <!-- Company Logo with fallback -->
-        <object data="logo.png" type="image/png" class="logo" aria-label="MM Times Logo">
-            <div class="logo-fallback" aria-hidden="true">MMT</div>
-        </object>
+    <div class="card">
+        <!-- Company Logo -->
+        <img src="logo.png" alt="MM Times Logo - IT Services and Laptop Sales" class="logo">
 
         <!-- Headings -->
         <h1>Welcome to MM Times</h1>
@@ -640,75 +526,58 @@
         
         <!-- Status indicator -->
         <div class="status">
-            <div class="status-dot" aria-hidden="true"></div>
+            <div class="status-dot"></div>
             Maintenance in progress - Estimated completion: 15 days
         </div>
         
         <!-- Progress bar -->
-        <div class="progress-container" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-container">
             <div class="progress-bar"></div>
         </div>
 
         <!-- Polite Request -->
-        <p style="font-size:1.05rem; font-weight:600; color:var(--primary); margin-top:2rem; margin-bottom:1rem;">
+        <p style="font-size:1.05rem; font-weight:600; color:var(--dark-blue); margin-top:2rem; margin-bottom:1rem;">
            👉 Please Scan the QR code or use the following quick links to view our company portfolio, explore elite laptop deals, or get in touch with us directly:
         </p>
 
-        <!-- QR Code with fallback -->
+        <!-- QR Code (static) -->
         <div class="qr-container">
-            <object data="qrcode.png" type="image/png" class="qr" aria-label="QR Code to MM Times Portfolio PDF">
-                <div class="qr-fallback">
-                    <div class="qr-placeholder">
-                        <i class="fas fa-qrcode" aria-hidden="true"></i>
-                    </div>
-                    <p style="color: var(--text-light); font-size: 0.9rem;">QR Code not available<br>Use the links below</p>
-                </div>
-            </object>
+            <img src="qrcode.png" alt="QR Code to MM Times Portfolio PDF - IT Services and Laptop Deals" class="qr">
         </div>
 
         <!-- Buttons -->
         <div class="buttons-container">
             <a href="https://drive.google.com/file/d/1RK_cxkmtGtKgg90PLHzhUD7XPR905UBI/view?usp=sharing" target="_blank" class="button">
-               <i class="fas fa-file-pdf" aria-hidden="true"></i> View Company Portfolio
+               <i class="fas fa-file-pdf"></i> View Company Portfolio
             </a>
             <a href="https://drive.google.com/file/d/19tBSzROwPtuYI3uQEfedkKM1Za0wYCsc/view?usp=sharing" target="_blank" class="button">
-               <i class="fas fa-laptop" aria-hidden="true"></i> Elite Laptop Deals & Service
+               <i class="fas fa-laptop"></i> Elite Laptop Deals & Service
             </a>
             <a href="tel:7989261342" class="button">
-               <i class="fas fa-phone" aria-hidden="true"></i> Call Us
+               <i class="fas fa-phone"></i> Call Us
             </a>
               <a href="https://wa.me/7989261342?text=Hello%20MM%20Times%2C%20I%20have%20a%20query" target="_blank" class="button">
-                 <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
+                 <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
             <a href="mailto:services@mmtimes.in?subject=Customer%20Query%20-%20MM%20Times&body=Hello%20Team%2C%0A%0AMy%20Name%3A%20%0AMy%20Contact%3A%20%0AMy%20Query%3A%20" class="button">
-                 <i class="fas fa-envelope" aria-hidden="true"></i> Submit Query
+                 <i class="fas fa-envelope"></i> Submit Query
             </a>
         </div>
 
         <!-- Social Media Icons -->
         <div class="social-media">
-            <a href="https://www.facebook.com/MMTimesOfficial" target="_blank" class="social-icon facebook" aria-label="Visit our Facebook page">
-                <i class="fab fa-facebook-f" aria-hidden="true"></i>
-            </a>
-            <a href="https://twitter.com/MMTimesOfficial" target="_blank" class="social-icon twitter" aria-label="Visit our Twitter page">
-                <i class="fab fa-twitter" aria-hidden="true"></i>
-            </a>
-            <a href="https://www.instagram.com/MMTimesOfficial" target="_blank" class="social-icon instagram" aria-label="Visit our Instagram page">
-                <i class="fab fa-instagram" aria-hidden="true"></i>
-            </a>
-            <a href="https://www.linkedin.com/company/MMTimesOfficial" target="_blank" class="social-icon linkedin" aria-label="Visit our LinkedIn page">
-                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-            </a>
-            <a href="https://www.youtube.com/@MMTimesOfficial" target="_blank" class="social-icon youtube" aria-label="Visit our YouTube channel">
-                <i class="fab fa-youtube" aria-hidden="true"></i>
-            </a>
+            <a href="javascript:void(0);" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="javascript:void(0);" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+            <a href="javascript:void(0);" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+            <a href="javascript:void(0);" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+            <a href="javascript:void(0);" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
         </div>
     
+    <div class="footer">
         <div class="footer">
-            <p>© <span id="year"></span> MM Times - All Rights Reserved | 
-                <a href="mailto:services@mmtimes.in">services@mmtimes.in</a>
-            </p>
-        </div>
+           <p>© <span id="year"></span> MM Times - All Rights Reserved | 
+              <a href="mailto:services@mmtimes.in">services@mmtimes.in</a>
+           </p>
     </div>
 
     <script>
@@ -716,18 +585,10 @@
         document.addEventListener("DOMContentLoaded", function() {
             const yearSpan = document.getElementById("year");
             if (yearSpan) {
-                yearSpan.textContent = new Date().getFullYear();
-            }
+              yearSpan.textContent = new Date().getFullYear();
             
-            // Add loading optimization for external resources
-            if ('loading' in HTMLImageElement.prototype) {
-                const images = document.querySelectorAll('img[loading="lazy"]');
-                images.forEach(img => {
-                    img.loading = 'lazy';
-                });
             }
-        });
+          });
     </script>
 </body>
 </html>
-
