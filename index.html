@@ -6,9 +6,6 @@
   <title>MM Times - Under Maintenance</title>
 
   <style>
-    /* =============================
-       Root Variables
-    ============================= */
     :root {
       --deep-blue: #0a1f44;
       --royal-blue: #1e3a8a;
@@ -16,21 +13,15 @@
       --white: #ffffff;
       --light-text: #f1f5f9;
       --gray: #64748b;
-      --gradient-bg: linear-gradient(135deg, var(--deep-blue), var(--royal-blue));
     }
 
-    /* =============================
-       Global Reset
-    ============================= */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--gradient-bg);
+      background: 
+        linear-gradient(rgba(10, 31, 68, 0.75), rgba(30, 58, 138, 0.75)),
+        url("your-background.jpg") no-repeat center center/cover; /* 👈 Replace */
       color: var(--light-text);
       display: flex;
       justify-content: center;
@@ -41,9 +32,36 @@
       text-align: center;
     }
 
-    /* =============================
-       Card (Main Glass Panel)
-    ============================= */
+    /* ===== Logo & Brand ===== */
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 1.5rem;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 0.8rem 1.5rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.25);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+
+    .brand img {
+      height: 60px;
+      width: auto;
+      border-radius: 10px;
+    }
+
+    .brand span {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    /* ===== Card (Main Panel) ===== */
     .card {
       background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(18px);
@@ -56,28 +74,24 @@
       max-width: 800px;
       width: 100%;
       animation: fadeInUp 1s ease-out;
-      position: relative;
-      overflow: hidden;
       color: rgba(255,255,255,0.95);
     }
 
     .card h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1.5rem;
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
       color: var(--white);
       text-shadow: 0 2px 12px rgba(0,0,0,0.3);
     }
 
     .card p {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       margin-bottom: 1.5rem;
       line-height: 1.6;
       color: rgba(255,255,255,0.9);
     }
 
-    /* =============================
-       Transparent Section
-    ============================= */
+    /* ===== Transparent Section ===== */
     .transparent-section {
       max-width: 800px;
       width: 100%;
@@ -92,9 +106,7 @@
       color: rgba(255,255,255,0.9);
     }
 
-    /* =============================
-       QR Code Container
-    ============================= */
+    /* ===== QR Code ===== */
     .qr-container {
       margin: 1.5rem auto;
       padding: 1rem;
@@ -106,16 +118,13 @@
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
       display: inline-block;
     }
-
     .qr-container img {
       width: 140px;
       height: 140px;
       border-radius: 12px;
     }
 
-    /* =============================
-       Buttons
-    ============================= */
+    /* ===== Buttons ===== */
     .button {
       display: inline-block;
       margin: 1rem 0.5rem;
@@ -131,18 +140,12 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       transition: background 0.3s ease;
     }
-
     .button:hover {
       background: rgba(255, 255, 255, 0.25);
     }
 
-    /* =============================
-       Social Icons
-    ============================= */
-    .social-icons {
-      margin-top: 1.5rem;
-    }
-
+    /* ===== Social Icons ===== */
+    .social-icons { margin-top: 1.5rem; }
     .social-icon {
       display: inline-block;
       margin: 0 0.5rem;
@@ -157,14 +160,9 @@
       box-shadow: 0 6px 20px rgba(0,0,0,0.2);
       transition: background 0.3s ease;
     }
+    .social-icon:hover { background: rgba(255, 255, 255, 0.25); }
 
-    .social-icon:hover {
-      background: rgba(255, 255, 255, 0.25);
-    }
-
-    /* =============================
-       Footer
-    ============================= */
+    /* ===== Footer ===== */
     .footer {
       margin-top: 2rem;
       padding: 1.5rem;
@@ -180,32 +178,24 @@
       text-shadow: none;
       text-align: center;
     }
+    .footer a { color: var(--sky-blue); text-decoration: none; }
+    .footer a:hover { color: white; }
 
-    .footer a {
-      color: var(--sky-blue);
-      text-decoration: none;
-    }
-
-    .footer a:hover {
-      color: white;
-    }
-
-    /* =============================
-       Animations
-    ============================= */
+    /* ===== Animation ===== */
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
+  <!-- Logo + Brand -->
+  <div class="brand">
+    <img src="your-logo.png" alt="MM Times Logo"> <!-- 👈 Replace with your logo -->
+    <span>MM Times</span>
+  </div>
+
+  <!-- Main Card -->
   <div class="card">
     <h1>🚧 Under Maintenance 🚧</h1>
     <p>We’re working hard to improve your experience.<br>
@@ -228,10 +218,12 @@
     </div>
   </div>
 
+  <!-- Transparent Section -->
   <div class="transparent-section">
     <p>Stay connected with us while we enhance our platform to serve you better.</p>
   </div>
 
+  <!-- Footer -->
   <div class="footer">
     © 2025 <a href="https://mmtimes.in">MM Times</a>. All Rights Reserved.
   </div>
