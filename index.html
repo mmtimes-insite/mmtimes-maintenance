@@ -1,287 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glassmorphism Website - Tech Theme</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Segoe UI', sans-serif; color: #fff; overflow-x: hidden; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MM Times - Under Maintenance</title>
 
-  /* BACKGROUND IMAGE */
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: url("https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1600&q=80") no-repeat center center fixed;
-    background-size: cover;
-    z-index: -2;
-  }
+  <style>
+    /* =============================
+       Root Variables
+    ============================= */
+    :root {
+      --deep-blue: #0a1f44;
+      --royal-blue: #1e3a8a;
+      --sky-blue: #38bdf8;
+      --white: #ffffff;
+      --light-text: #f1f5f9;
+      --gray: #64748b;
+      --gradient-bg: linear-gradient(135deg, var(--deep-blue), var(--royal-blue));
+    }
 
-  /* HEADER + NAV WRAPPER */
-  .header-nav-wrapper {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    z-index: 1000;
-  }
+    /* =============================
+       Global Reset
+    ============================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  header {
-    width: 100%;
-    height: 210px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
-    background: rgba(255,255,255,0.18);
-    border-radius: 16px;
-    backdrop-filter: blur(18px);
-    border: 1.5px solid rgba(255,255,255,0.5);
-    transition: transform 0.5s ease;
-  }
-  header .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 32px;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-  }
-  header .logo img {
-    height: 60px;
-    width: auto;
-    border-radius: 8px;
-  }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--gradient-bg);
+      color: var(--light-text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+      flex-direction: column;
+      text-align: center;
+    }
 
-  /* NAVIGATION */
-  .top-nav {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 12px 0;
-    margin-top: 10px;
-    background: rgba(255,255,255,0.08);
-    border: 1.5px solid rgba(255,255,255,0.5);
-    border-radius: 16px;
-    backdrop-filter: blur(12px);
-    position: sticky;
-    top: 0;
-    z-index: 1001;
-    transition: transform 0.5s ease;
-  }
-  .top-nav button {
-    margin: 0 12px;
-    padding: 10px 22px;
-    border-radius: 12px;
-    border: 1.5px solid rgba(255,255,255,0.5);
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(10px);
-    color: white;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  .top-nav button:hover { background: rgba(255,255,255,0.25); }
-  .top-nav button.active { background: rgba(255,255,255,0.35); }
+    /* =============================
+       Card (Main Glass Panel)
+    ============================= */
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      padding: 3rem;
+      border-radius: 24px 24px 0 0;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-bottom: none;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+      max-width: 800px;
+      width: 100%;
+      animation: fadeInUp 1s ease-out;
+      position: relative;
+      overflow: hidden;
+      color: rgba(255,255,255,0.95);
+    }
 
-  /* SIDE BARS */
-  .sidebar-container {
-    position: absolute;
-    top: 300px;
-    left: 0px;
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-  }
-  .slide-bar {
-    flex: 1;
-    min-height: 360px;
-    padding: 15px 18px;
-    border-radius: 16px;
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(15px);
-    border: 1.5px solid rgba(255,255,255,0.25);
-    color: white;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  .slide-bar:hover { background: rgba(255,255,255,0.25); }
+    .card h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
 
-  /* HERO SECTION */
-  .hero { 
-    margin-top: 320px;
-    height: 100vh; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    flex-direction: column; 
-    text-align: center; 
-  }
-  .hero .content {
-    max-width: 700px;
-    padding: 30px;
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(15px);
-    border-radius: 16px;
-    border: 1.5px solid rgba(255,255,255,0.25);
-  }
-  .hero h1 { font-size: 3rem; margin-bottom: 15px; }
-  .hero p { font-size: 1.2rem; margin-bottom: 20px; }
+    .card p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.9);
+    }
 
-  /* CONTENT SECTIONS */
-  section { margin-left: 240px; padding: 60px 40px; position: relative; }
-  section h2 { font-size: 2rem; margin-bottom: 25px; text-align: center; }
+    /* =============================
+       Transparent Section
+    ============================= */
+    .transparent-section {
+      max-width: 800px;
+      width: 100%;
+      padding: 2rem 3rem 3rem;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 0 0 24px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-top: none;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      color: rgba(255,255,255,0.9);
+    }
 
-  /* CARDS */
-  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-  .card { 
-    padding: 20px; 
-    min-height: 180px; 
-    border-radius: 16px; 
-    color: white; 
-    background: rgba(255,255,255,0.12); 
-    backdrop-filter: blur(15px);
-    border: 1.5px solid rgba(255,255,255,0.25); 
-    transition: transform 0.3s ease; 
-  }
-  .card:hover { transform: translateY(-8px); }
-  .card h3 { margin-bottom: 12px; font-size: 20px; }
-  .card p { font-size: 14px; line-height: 1.6; }
+    /* =============================
+       QR Code Container
+    ============================= */
+    .qr-container {
+      margin: 1.5rem auto;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      display: inline-block;
+    }
 
-  /* FOOTER */
-  footer {
-    width: 100%;
-    margin: 0;
-    padding: 80px 40px;
-    text-align: center;
-    background: rgba(0,0,0,0.35);
-    backdrop-filter: blur(12px);
-    border-top: 1.5px solid rgba(255,255,255,0.25);
-    border-radius: 0;
-    color: rgba(255,255,255,0.9);
-    font-size: 0.95rem;
-  }
-</style>
+    .qr-container img {
+      width: 140px;
+      height: 140px;
+      border-radius: 12px;
+    }
+
+    /* =============================
+       Buttons
+    ============================= */
+    .button {
+      display: inline-block;
+      margin: 1rem 0.5rem;
+      padding: 0.8rem 1.6rem;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.95);
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* =============================
+       Social Icons
+    ============================= */
+    .social-icons {
+      margin-top: 1.5rem;
+    }
+
+    .social-icon {
+      display: inline-block;
+      margin: 0 0.5rem;
+      font-size: 1.8rem;
+      color: white;
+      padding: 0.5rem 0.8rem;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    }
+
+    .social-icon:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* =============================
+       Footer
+    ============================= */
+    .footer {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.9rem;
+      text-shadow: none;
+      text-align: center;
+    }
+
+    .footer a {
+      color: var(--sky-blue);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: white;
+    }
+
+    /* =============================
+       Animations
+    ============================= */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
-
-<div class="header-nav-wrapper">
-  <header id="mainHeader">
-    <div class="logo">
-      <img src="your-logo.png" alt="MyCompany Logo">
-      <span>MyCompany</span>
-    </div>
-  </header>
-  <div class="top-nav" id="topNav">
-    <button data-target="hero">Home</button>
-    <button data-target="services">Services</button>
-    <button data-target="about">About</button>
-    <button data-target="testimonials">Testimonials</button>
-    <button data-target="contact">Contact</button>
-  </div>
-</div>
-
-<div class="sidebar-container">
-  <div class="slide-bar">Sidebar 1</div>
-  <div class="slide-bar">Sidebar 2</div>
-  <div class="slide-bar">Sidebar 3</div>
-  <div class="slide-bar">Sidebar 4</div>
-  <div class="slide-bar">Sidebar 5</div>
-</div>
-
-<section id="hero" class="hero">
-  <div class="content">
-    <h1>Technology for the Future</h1>
-    <p>Innovating with AI, IoT, Robotics, and Renewable Energy. Experience the future in glassmorphic style.</p>
-  </div>
-</section>
-
-<section id="services">
-  <h2>Our Services</h2>
-  <div class="card-grid">
-    <div class="card"><h3>Workshops</h3><p>Hands-on training for students, colleges, and professionals.</p></div>
-    <div class="card"><h3>Projects</h3><p>Custom and ready-made projects in advanced technologies.</p></div>
-    <div class="card"><h3>R&D</h3><p>Research and development for industries and institutions.</p></div>
-    <div class="card"><h3>Laptops</h3><p>Affordable refurbished laptops with warranty and support.</p></div>
-  </div>
-</section>
-
-<section id="about">
-  <h2>About Us</h2>
-  <div class="card"><p>We are dedicated to developing innovative projects across multiple domains.</p></div>
-</section>
-
-<section id="testimonials">
-  <h2>What People Say</h2>
-  <div class="card-grid">
-    <div class="card"><p>“The workshop was eye-opening! I learned so much.”</p></div>
-    <div class="card"><p>“Great team and excellent project execution.”</p></div>
-    <div class="card"><p>“Affordable laptops with top-notch service. Highly recommended.”</p></div>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact Us</h2>
   <div class="card">
-    <p>Email: info@mycompany.com</p>
-    <p>Phone: +91-9876543210</p>
-    <p>Address: 123 Innovation Street, Tech City</p>
+    <h1>🚧 Under Maintenance 🚧</h1>
+    <p>We’re working hard to improve your experience.<br>
+       Please check back soon.</p>
+
+    <div class="qr-container">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://mmtimes.in" alt="QR Code">
+    </div>
+
+    <div>
+      <a href="https://mmtimes.in" class="button">Visit Website</a>
+      <a href="mailto:info@mmtimes.in" class="button">Contact Us</a>
+    </div>
+
+    <div class="social-icons">
+      <a href="#" class="social-icon">🌐</a>
+      <a href="#" class="social-icon">📘</a>
+      <a href="#" class="social-icon">🐦</a>
+      <a href="#" class="social-icon">📸</a>
+    </div>
   </div>
-</section>
 
-<footer>© 2025 MyCompany | All Rights Reserved</footer>
+  <div class="transparent-section">
+    <p>Stay connected with us while we enhance our platform to serve you better.</p>
+  </div>
 
-<script>
-const mainHeader = document.getElementById('mainHeader');
-const topNav = document.getElementById('topNav');
-let lastScroll = 0;
-
-window.addEventListener('scroll', () => {
-  const currentScroll = window.pageYOffset;
-
-  if(currentScroll > lastScroll && currentScroll > 50){
-    // Scroll down → hide header + nav
-    mainHeader.style.transform = 'translateY(-210px)';
-    topNav.style.transform = 'translateY(-210px)';
-  } else {
-    // Scroll up → show header + nav again
-    mainHeader.style.transform = 'translateY(0)';
-    topNav.style.transform = 'translateY(0)';
-  }
-
-  lastScroll = currentScroll <= 0 ? 0 : currentScroll;
-});
-
-// Smooth scroll + active highlight
-const navButtons = document.querySelectorAll('.top-nav button');
-const sections = document.querySelectorAll('section');
-
-navButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const targetId = btn.getAttribute('data-target');
-    const section = document.getElementById(targetId);
-    if(section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-});
-
-window.addEventListener('scroll', () => {
-  let scrollPos = window.scrollY + 250;
-  sections.forEach(sec => {
-    if(scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight){
-      navButtons.forEach(btn => btn.classList.remove('active'));
-      const activeBtn = document.querySelector(`.top-nav button[data-target="${sec.id}"]`);
-      if(activeBtn) activeBtn.classList.add('active');
-    }
-  });
-});
-</script>
-
+  <div class="footer">
+    © 2025 <a href="https://mmtimes.in">MM Times</a>. All Rights Reserved.
+  </div>
 </body>
 </html>
