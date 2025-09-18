@@ -1,198 +1,632 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neon Glassmorphism</title>
-<style>
-    /* Reset */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MM Times - Research and Development, Laptop Sales, Material Procurement, Web Solutions, Workshops, Projects | Under Maintenance</title>
+    <meta name="description" content="MM Times is undergoing maintenance. We provide Research and Development, Laptop Sales, Material Procurement, Web Solutions, Workshops, Projects. Contact us for elite laptop deals and Web solutions.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://mmtimes.in/" />
+    
+    <!-- Robots directive -->
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mmtimes.in/">
+    <meta property="og:title" content="MM Times - Research and Development, Laptop Sales, Material Procurement, Web Solutions, Workshops, Projects">
+    <meta property="og:description" content="MM Times provides Research and Development, Laptop Sales, Material Procurement, Web Solutions, Workshops, Projects. Currently enhancing our website to serve you better.">
+    <meta property="og:image" content="https://mmtimes.in/logo.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mmtimes.in/">
+    <meta property="twitter:title" content="MM Times - Research and Development, Laptop Sales, Material Procurement, Web Solutions, Workshops, Projects">
+    <meta property="twitter:description" content="MM Times provides Research and Development, Laptop Sales, Material Procurement, Web Solutions, Workshops, Projects.">
+    <meta property="twitter:image" content="https://mmtimes.in/logo.png">
+    
+    <!-- Favicon setup -->
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: url("https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1600&q=80") 
-                    no-repeat center center fixed;
-        background-size: cover;
-        color: white;
-        line-height: 1.6;
-        overflow-x: hidden;
-    }
-
-    /* Container */
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        min-height: 100vh;
-        padding: 2rem;
-    }
-
-    /* Card Styles */
-    .card {
+    <style>
+        /* Global Styles */
+        :root {
+            --white: #ffffff;
+            --sky-blue: #87ceeb;
+            --red: #ff4d4d;
+            --orange: #ff7f00;
+            --blue: #4169e1;
+            --purple: #9370db;
+            --dark-blue: #1a2a6c;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --neutral: #f8f9fa;
+        }
         
-        background: transparent; /* fully transparent */
-        backdrop-filter: none;   /* remove blur */
-        padding: 3rem;
-        border-radius: 20px 20px 0 0;
-        box-shadow: none; /* no shadow fill */
-        max-width: 800px;
-        width: 100%;
-        box-sizing: border-box;
-        animation: fadeInUp 1s ease-out;
-        position: relative;
-        overflow: hidden;
-        border: 2px solid rgba(255, 255, 255, 0.5); /* visible outline */
-        border-bottom: none;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--sky-blue), var(--blue), var(--purple), var(--red), var(--orange));
+            background-size: 400% 400%;
+            background-attachment: fixed;
+            color: var(--neutral);
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            overflow-x: hidden;
+            animation: gradientBG 15s ease infinite;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Geometric pattern overlay */
+        .geometric-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.08;
+            background-image: 
+                radial-gradient(circle at 10% 20%, var(--white) 1px, transparent 1px),
+                radial-gradient(circle at 30% 60%, var(--white) 1px, transparent 1px),
+                radial-gradient(circle at 70% 40%, var(--white) 1px, transparent 1px),
+                radial-gradient(circle at 90% 80%, var(--white) 1px, transparent 1px);
+            background-size: 5% 5%;
+            z-index: -1;
+        }
+        
+        /* Card Styles */
+        .card {
+            background: transparent; /* fully transparent */
+            backdrop-filter: none;   /* remove blur */
+            padding: 3rem;
+            border-radius: 20px 20px 0 0;
+            box-shadow: none; /* no shadow fill */
+            max-width: 800px;
+            width: 100%;
+            box-sizing: border-box;
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.5); /* visible outline */
+            border-bottom: none;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--red), var(--orange), var(--blue), var(--purple));
+            z-index: 2;
+        }
+        
+        .card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to bottom right, 
+                        rgba(255,255,255,0.2), 
+                        rgba(255,255,255,0.1), 
+                        rgba(255,255,255,0.05));
+            transform: rotate(30deg);
+            z-index: -1;
+        }
 
-    .card h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        color: #fff;
-        text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
-    }
+        /* Transparent section styles */
+        .transparent-section {
+            max-width: 800px;
+            width: 100%;
+            padding: 2rem 3rem 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-top: none;
+            margin-bottom: 2rem;
+            animation: fadeIn 1.2s ease-out;
+        }
 
-    .card p {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-        color: rgba(255, 255, 255, 0.9);
-    }
+        /* Logo */
+        .logo {
+            width: 45%;
+            max-width: 220px;
+            height: auto;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+            animation: floatLogo 3s ease-in-out infinite;
+        }
 
-    /* Transparent Section */
-    .transparent-section {
-        max-width: 800px;
-        width: 100%;
-        padding: 2rem 3rem 3rem;
-        background: rgba(255, 255, 255, 0.02);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-radius: 0 0 20px 20px;
-        margin-bottom: 2rem;
+        /* Headings */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--dark-blue);
+            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.5px;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--red);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--orange), var(--blue));
+            border-radius: 3px;
+        }
 
-        /* Neon border */
-        border: 2px solid rgba(0, 255, 255, 0.6);
-        box-shadow: 0 0 15px rgba(0, 255, 255, 0.6),
-                    0 0 30px rgba(0, 255, 255, 0.4),
-                    0 0 50px rgba(0, 255, 255, 0.3);
-    }
+        /* Paragraphs */
+        p {
+            font-size: 1.05rem;
+            margin: 1rem 0 1.5rem 0;
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-weight: 500;
+        }
 
-    .transparent-section h2 {
-        text-align: center;
-        margin-bottom: 1.5rem;
-        color: #fff;
-        text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
-    }
+        .transparent-text {
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+        }
 
-    /* QR Container */
-    .qr-container {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 2rem;
-        padding: 1.5rem;
-        border-radius: 12px;
+        /* QR Code (static) */
+        .qr-container {
+            position: relative;
+            display: inline-block;
+            margin: 1.5rem 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        
+        .qr-container:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        img.qr {
+            width: 40%;
+            max-width: 200px;
+            height: auto;
+            display: block;
+        }
 
-        border: 2px solid rgba(0, 255, 255, 0.6);
-        box-shadow: 0 0 15px rgba(0, 255, 255, 0.6),
-                    0 0 30px rgba(0, 255, 255, 0.4);
-    }
-
-    .qr-container img {
-        width: 180px;
-        height: 180px;
-    }
-
-    /* Buttons */
-    .button-group {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-    }
-
-    .button {
-        background: transparent;
-        border: 2px solid rgba(0, 255, 255, 0.6);
-        color: #fff;
-        padding: 0.8rem 1.5rem;
-        border-radius: 12px;
-        cursor: pointer;
-        transition: 0.3s;
-        font-weight: 500;
-        box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
-    }
-
-    .button:hover {
-        background: rgba(0, 255, 255, 0.1);
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
-    }
-
-    /* Social Media Icons */
-    .social-icons {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 2rem;
-    }
-
-    .social-icon {
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: transparent;
-        border: 2px solid rgba(0, 255, 255, 0.6);
-        box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
-        transition: 0.3s;
-        cursor: pointer;
-    }
-
-    .social-icon:hover {
-        background: rgba(0, 255, 255, 0.1);
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-        from {
+        /* Buttons */
+        .buttons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 2rem;
+        }
+        
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 24px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: var(--neutral);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--purple), var(--blue));
             opacity: 0;
-            transform: translateY(40px);
+            transition: opacity 0.3s ease;
+            z-index: -1;
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
+        
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 0.25);
         }
-    }
-</style>
+        
+        .button:hover::before {
+            opacity: 0.8;
+        }
+        
+        .button:nth-child(2) {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .button:nth-child(2)::before {
+            background: linear-gradient(135deg, var(--orange), var(--red));
+        }
+        
+        .button:nth-child(3) {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .button:nth-child(3)::before {
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+        }
+        
+        .button:nth-child(4) {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .button:nth-child(4)::before {
+            background: linear-gradient(135deg, #25D366, #3dec7c);
+        }
+        
+        .button:nth-child(5) {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .button:nth-child(5)::before {
+            background: linear-gradient(135deg, var(--red), var(--orange));
+        }
+        
+        .button i {
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+        
+        /* Progress bar */
+        .progress-container {
+            width: 100%;
+            height: 10px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 5px;
+            margin: 2.5rem 0 1.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 65%;
+            background: linear-gradient(90deg, var(--red), var(--orange), var(--blue), var(--purple));
+            border-radius: 5px;
+            animation: progressAnimation 1.5s ease-in-out infinite alternate;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 20px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        /* Status indicator */
+        .status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--red);
+            margin-right: 10px;
+            position: relative;
+        }
+        
+        .status-dot::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--red);
+            opacity: 0.6;
+            animation: pulse 2s infinite;
+        }
+        
+        /* Social Media Icons */
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 2rem 0;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            background: rgba(255, 255, 255, 0.25);
+        }
+        
+        .social-icon.facebook { background: rgba(59, 89, 152, 0.7); }
+        .social-icon.twitter { background: rgba(29, 161, 242, 0.7); }
+        .social-icon.instagram { 
+            background: linear-gradient(45deg, 
+                rgba(240, 148, 51, 0.7), 
+                rgba(230, 104, 60, 0.7), 
+                rgba(220, 39, 67, 0.7), 
+                rgba(204, 35, 102, 0.7), 
+                rgba(188, 24, 136, 0.7));
+        }
+        .social-icon.linkedin { background: rgba(0, 119, 181, 0.7); }
+        .social-icon.youtube { background: rgba(255, 0, 0, 0.7); }
+        
+        /* Footer */
+        .footer {
+            margin-top: 2rem;
+            color: rgba(255,255,255,0.9);
+            font-size: 0.9rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            font-weight: 500;
+        }
+        
+        .footer a {
+            color: var(--sky-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes floatLogo {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        
+        @keyframes progressAnimation {
+            0% { width: 65%; }
+            100% { width: 70%; }
+        }
+        
+        @keyframes shimmer {
+            0% { left: -20px; }
+            100% { left: calc(100% + 20px); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(2); opacity: 0; }
+            100% { transform: scale(1); opacity: 0.6; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .buttons-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.3rem; }
+            p { font-size: 1rem; }
+            .button { 
+                font-size: 0.95rem; 
+                padding: 14px 20px;
+            }
+            .card, .transparent-section {
+                padding: 2.5rem;
+            }
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .buttons-container {
+                grid-template-columns: 1fr;
+            }
+            .social-media {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.2rem; }
+            p { font-size: 0.95rem; }
+            .logo { width: 60%; max-width: 200px; }
+            img.qr { width: 50%; max-width: 150px; }
+            .button { 
+                font-size: 0.9rem; 
+                padding: 12px 18px;
+            }
+            .card, .transparent-section {
+                padding: 2rem 1.5rem;
+            }
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <h1>Neon Glassmorphism</h1>
-            <p>Fully transparent cards with glowing neon glass edges.</p>
+    <!-- Geometric pattern overlay -->
+    <div class="geometric-overlay"></div>
+
+    <div class="card">
+        <!-- Company Logo -->
+        <img src="logo.png" alt="MM Times Logo - IT Services and Laptop Sales" class="logo">
+
+        <!-- Headings -->
+        <h1>Welcome to MM Times</h1>
+        <h2>Meenakshi Mukundha Times</h2>
+
+        <!-- Maintenance Message -->
+        <p>We are currently enhancing our website to serve you better. Thank you for your patience during this maintenance period.</p>
+        <p>MM Times provides comprehensive Research and Development, Laptop Sales, Material Procurement, Web Solutions, Workshops, Projects. We'll be back soon with an improved experience and exciting new features!</p>
+        
+        <!-- Status indicator -->
+        <div class="status">
+            <div class="status-dot"></div>
+            Maintenance in progress - Estimated completion: 15 days
+        </div>
+        
+        <!-- Progress bar -->
+        <div class="progress-container">
+            <div class="progress-bar"></div>
         </div>
 
-        <div class="transparent-section">
-            <h2>Scan to Connect</h2>
-            <div class="qr-container">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://example.com" alt="QR Code">
-            </div>
-            <div class="button-group">
-                <div class="button">Get Started</div>
-                <div class="button">Learn More</div>
-            </div>
-            <div class="social-icons">
-                <div class="social-icon">F</div>
-                <div class="social-icon">T</div>
-                <div class="social-icon">I</div>
-            </div>
+        <!-- Polite Request -->
+        <p style="font-size:1.05rem; font-weight:600; color:var(--dark-blue); margin-top:2rem; margin-bottom:1rem;">
+           👉 Please Scan the QR code or use the following quick links to view our company portfolio, explore elite laptop deals, or get in touch with us directly:
+        </p>
+    </div> <!-- End of card -->
+
+    <!-- Transparent section for QR code and buttons -->
+    <div class="transparent-section">
+        <!-- QR Code (static) -->
+        <div class="qr-container">
+            <img src="qrcode.png" alt="QR Code to MM Times Portfolio PDF - IT Services and Laptop Deals" class="qr">
         </div>
-    </div>
+
+        <!-- Buttons -->
+        <div class="buttons-container">
+            <a href="https://drive.google.com/file/d/1RK_cxkmtGtKgg90PLHzhUD7XPR905UBI/view?usp=sharing" target="_blank" class="button">
+               <i class="fas fa-file-pdf"></i> View Company Portfolio
+            </a>
+            <a href="https://drive.google.com/file/d/19tBSzROwPtuYI3uQEfedkKM1Za0wYCsc/view?usp=sharing" target="_blank" class="button">
+               <i class="fas fa-laptop"></i> Elite Laptop Deals & Service
+            </a>
+            <a href="tel:7989261342" class="button">
+               <i class="fas fa-phone"></i> Call Us
+            </a>
+              <a href="https://wa.me/7989261342?text=Hello%20MM%20Times%2C%20I%20have%20a%20query" target="_blank" class="button">
+                 <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="mailto:services@mmtimes.in?subject=Customer%20Query%20-%20MM%20Times&body=Hello%20Team%2C%0A%0AMy%20Name%3A%20%0AMy%20Contact%3A%20%0AMy%20Query%3A%20" class="button">
+                 <i class="fas fa-envelope"></i> Submit Query
+            </a>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="social-media">
+            <a href="javascript:void(0);" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="javascript:void(0);" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+            <a href="javascript:void(0);" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+            <a href="javascript:void(0);" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+            <a href="javascript:void(0);" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+        </div>
+    
+        <div class="footer">
+           <p>© <span id="year"></span> MM Times - All Rights Reserved | 
+              <a href="mailto:services@mmtimes.in">services@mmtimes.in</a>
+           </p>
+        </div>
+    </div> <!-- End of transparent section -->
+
+    <script>
+        // Auto-update footer year
+        document.addEventListener("DOMContentLoaded", function() {
+            const yearSpan = document.getElementById("year");
+            if (yearSpan) {
+              yearSpan.textContent = new Date().getFullYear();
+            }
+          });
+    </script>
 </body>
 </html>
-
