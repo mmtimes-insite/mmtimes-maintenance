@@ -143,16 +143,16 @@
         /* Transparent section styles */
         .transparent-section {
             max-width: 800px;
-            width: 100%;
-            padding: 2rem 3rem 3rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 0 0 20px 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-top: none;
-            margin-bottom: 2rem;
-            animation: fadeIn 1.2s ease-out;
+    width: 100%;
+    padding: 2rem 3rem 3rem;
+    background: transparent; /* keep same as top */
+    backdrop-filter: none;
+    border-radius: 0 0 20px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5); /* match top card */
+    border-top: none; /* seamless merge */
+    box-shadow: none; /* match top */
+    margin-bottom: 2rem;
+    animation: fadeIn 1.2s ease-out;
         }
 
         /* Logo */
@@ -630,3 +630,4 @@
     </script>
 </body>
 </html>
+
