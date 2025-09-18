@@ -32,20 +32,18 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Card with 90% Transparency + Light Blur */
+    /* Card with transparency and blur */
     .card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      padding: 3rem 2rem;
-      border-radius: 20px;
-      max-width: 800px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      padding: 2.5rem 2rem;
+      border-radius: 18px;
+      max-width: 700px;
       width: 100%;
       border: 2px solid rgba(255, 255, 255, 0.25);
-      animation: fadeInUp 1s ease-out;
-      position: relative;
-      overflow: hidden;
       text-align: center;
+      animation: fadeInUp 1s ease-out;
     }
 
     @keyframes fadeInUp {
@@ -55,29 +53,19 @@
 
     /* Logo */
     .logo {
-      max-width: 250px;
+      max-width: 200px;
       margin-bottom: 1rem;
     }
 
-    /* Headings & Text */
+    /* Text styles */
     h1, h2, p, .status, .footer {
       color: #ffffff;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      text-shadow: 0 2px 6px rgba(0,0,0,0.45);
       margin-bottom: 1rem;
     }
-
-    h1 {
-      font-size: 2rem;
-      font-weight: 700;
-    }
-    h2 {
-      font-size: 2.2rem;
-      font-weight: 600;
-    }
-    p {
-      font-size: 1rem;
-      line-height: 1.5;
-    }
+    h1 { font-size: 1.9rem; font-weight: 700; }
+    h2 { font-size: 1.6rem; font-weight: 600; }
+    p { font-size: 1rem; line-height: 1.5; }
 
     /* Status Indicator */
     .status {
@@ -85,11 +73,11 @@
       align-items: center;
       justify-content: center;
       font-weight: 600;
-      margin: 1.5rem 0;
+      margin: 1.2rem 0;
     }
     .status-dot {
-      width: 12px;
-      height: 12px;
+      width: 10px;
+      height: 10px;
       background: #00ff6a;
       border-radius: 50%;
       margin-right: 8px;
@@ -104,11 +92,11 @@
     /* Progress Bar */
     .progress-container {
       width: 100%;
-      height: 12px;
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 10px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 6px;
       overflow: hidden;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
     .progress-bar {
       width: 70%;
@@ -117,55 +105,54 @@
       animation: progressAnim 3s ease-in-out infinite;
     }
     @keyframes progressAnim {
-      0% { width: 10%; }
+      0% { width: 20%; }
       50% { width: 70%; }
-      100% { width: 10%; }
+      100% { width: 20%; }
     }
 
-    /* Buttons with Glossy Oil-Paint Effect */
+    /* Buttons smaller with different glossy gradients */
     .buttons-container {
-      display: grid;
-      gap: 1rem;
-      margin: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      margin: 1.5rem 0;
     }
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 8px 12px;
-      border-radius: 50px;
+      padding: 10px 16px;
+      border-radius: 30px;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       color: #fff;
       text-decoration: none;
       border: none;
       cursor: pointer;
-      background: linear-gradient(145deg, #36d1dc, #5b86e5, #36d1dc);
       background-size: 200% 200%;
       animation: glossyShift 6s ease infinite;
       position: relative;
       overflow: hidden;
-      transition: transform 0.8s, box-shadow 0.8s;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      transition: transform 0.4s, box-shadow 0.4s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
     }
-    .button i {
-      margin-right: 8px;
-    }
+    .button i { margin-right: 6px; font-size: 0.9rem; }
     .button::after {
       content: "";
       position: absolute;
       top: 0;
-      left: -75%;
-      width: 50%;
+      left: -70%;
+      width: 40%;
       height: 100%;
       background: linear-gradient(120deg, rgba(255,255,255,0.6), transparent);
       transform: skewX(-20deg);
       animation: glossyHighlight 3s infinite;
     }
     @keyframes glossyHighlight {
-      0% { left: -75%; }
-      50% { left: 125%; }
-      100% { left: 125%; }
+      0% { left: -70%; }
+      50% { left: 120%; }
+      100% { left: 120%; }
     }
     @keyframes glossyShift {
       0% { background-position: 0% 50%; }
@@ -173,30 +160,33 @@
       100% { background-position: 0% 50%; }
     }
     .button:hover {
-      transform: translateY(-2px) scale(1.03);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
     }
 
-    /* Social Media Icons */
-    .social-media {
-      margin-top: 2rem;
-    }
+    /* Different button color schemes */
+    .btn-portfolio { background: linear-gradient(145deg, #ff512f, #dd2476); }
+    .btn-laptop   { background: linear-gradient(145deg, #36d1dc, #5b86e5); }
+    .btn-call     { background: linear-gradient(145deg, #11998e, #38ef7d); }
+    .btn-whatsapp { background: linear-gradient(145deg, #25D366, #128C7E); }
+    .btn-query    { background: linear-gradient(145deg, #f7971e, #ffd200); color: #222; font-weight: 700; }
+
+    /* Social Media */
+    .social-media { margin-top: 1.2rem; }
     .social-icon {
       display: inline-block;
-      margin: 0 0.5rem;
-      font-size: 1.3rem;
+      margin: 0 0.4rem;
+      font-size: 1.2rem;
       color: #fff;
       opacity: 0.85;
       transition: opacity 0.3s;
     }
-    .social-icon:hover {
-      opacity: 1;
-    }
+    .social-icon:hover { opacity: 1; }
 
     /* Footer */
     .footer {
-      margin-top: 2rem;
-      font-size: 0.9rem;
+      margin-top: 1.2rem;
+      font-size: 0.85rem;
     }
     .footer a {
       color: #ffffff;
@@ -206,47 +196,40 @@
 </head>
 <body>
   <div class="card">
-    <!-- Logo -->
     <img src="logo.png" alt="MM Times Logo" class="logo">
 
-    <!-- Headings -->
     <h1>Welcome to MM Times</h1>
     <h2>Meenakshi Mukundha Times</h2>
 
-    <!-- Maintenance Message -->
     <p>We are currently enhancing our website to serve you better. Please stay connected with us for updates.</p>
     <p>MM Times provides comprehensive Research, Development, Portfolio, and Services.</p>
-    
-    <!-- Status -->
+
     <div class="status">
       <div class="status-dot"></div>
       Maintenance in progress - Estimated completion: 15 days
     </div>
 
-    <!-- Progress bar -->
     <div class="progress-container">
       <div class="progress-bar"></div>
     </div>
 
-    <!-- Buttons -->
+    <!-- Compact, colorful buttons -->
     <div class="buttons-container">
-      <a href="#" class="button"><i class="fas fa-file-pdf"></i> View Company Portfolio</a>
-      <a href="#" class="button"><i class="fas fa-laptop"></i> Elite Laptop Deals & Service</a>
-      <a href="#" class="button"><i class="fas fa-phone"></i> Call Us</a>
-      <a href="#" class="button"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-      <a href="#" class="button"><i class="fas fa-envelope"></i> Submit Query</a>
+      <a href="#" class="button btn-portfolio"><i class="fas fa-file-pdf"></i> Portfolio</a>
+      <a href="#" class="button btn-laptop"><i class="fas fa-laptop"></i> Laptops</a>
+      <a href="tel:7989261342" class="button btn-call"><i class="fas fa-phone"></i> Call</a>
+      <a href="https://wa.me/7989261342" class="button btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="mailto:services@mmtimes.in" class="button btn-query"><i class="fas fa-envelope"></i> Query</a>
     </div>
 
-    <!-- Social Media -->
     <div class="social-media">
-      <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
-      <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
-      <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
       <p>© <span id="year"></span> MM Times - All Rights Reserved |
         <a href="mailto:services@mmtimes.in">services@mmtimes.in</a>
@@ -255,12 +238,7 @@
   </div>
 
   <script>
-    // Auto-update year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
-
-
-
-
